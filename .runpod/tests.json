@@ -1,0 +1,60 @@
+{
+  "tests": [
+    {
+      "name": "Health Check",
+      "description": "Check if the API server is healthy",
+      "method": "GET",
+      "path": "/healthcheck",
+      "headers": {
+        "accept": "application/json"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "status": "healthy"
+      }
+    },
+    {
+      "name": "List Models",
+      "description": "Get available models",
+      "method": "GET",
+      "path": "/models/list",
+      "headers": {
+        "accept": "application/json"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "data": [
+          {
+            "id": "whisper-large-v2",
+            "object": "model",
+            "owned_by": "openai"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Root Endpoint",
+      "description": "Check root endpoint",
+      "method": "GET",
+      "path": "/",
+      "headers": {
+        "accept": "application/json"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "message": "WhisperX API Server is running"
+      }
+    }
+  ],
+  "loadTests": [
+    {
+      "name": "Concurrent Health Checks",
+      "description": "Test concurrent health check requests",
+      "method": "GET",
+      "path": "/healthcheck",
+      "concurrency": 10,
+      "duration": 30,
+      "expectedStatus": 200
+    }
+  ]
+} 

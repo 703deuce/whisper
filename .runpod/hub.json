@@ -1,0 +1,85 @@
+{
+  "name": "WhisperX API Server",
+  "description": "OpenAI Whisper API compatible server with speaker diarization and word-level alignment using WhisperX",
+  "readme": "README.md",
+  "category": "AI/ML",
+  "tags": [
+    "whisper",
+    "speech-to-text",
+    "transcription",
+    "diarization",
+    "alignment",
+    "audio-processing",
+    "ai",
+    "ml"
+  ],
+  "image": "whisperx-api-server",
+  "ports": [
+    {
+      "containerPort": 8000,
+      "protocol": "HTTP"
+    }
+  ],
+  "env": [
+    {
+      "name": "WHISPER_MODEL",
+      "description": "Whisper model to load (default: large-v2)",
+      "default": "large-v2",
+      "required": false
+    },
+    {
+      "name": "HF_TOKEN",
+      "description": "Hugging Face token for diarization models",
+      "default": "",
+      "required": false
+    },
+    {
+      "name": "CUDA_VISIBLE_DEVICES",
+      "description": "CUDA device to use",
+      "default": "0",
+      "required": false
+    }
+  ],
+  "volumeMounts": [
+    {
+      "name": "models-cache",
+      "mountPath": "/root/.cache"
+    }
+  ],
+  "resources": {
+    "gpu": {
+      "type": "nvidia-tesla-t4",
+      "count": 1,
+      "memory": "16GB"
+    },
+    "cpu": {
+      "count": 4
+    },
+    "memory": {
+      "size": "16GB"
+    },
+    "storage": {
+      "size": "50GB"
+    }
+  },
+  "minReplicas": 0,
+  "maxReplicas": 10,
+  "targetConcurrency": 1,
+  "maxConcurrency": 5,
+  "idleTimeout": 300,
+  "scaleUpDelay": 10,
+  "scaleDownDelay": 60,
+  "healthCheck": {
+    "path": "/healthcheck",
+    "interval": 30,
+    "timeout": 10,
+    "retries": 3
+  },
+  "startupProbe": {
+    "path": "/healthcheck",
+    "initialDelaySeconds": 30,
+    "periodSeconds": 10,
+    "timeoutSeconds": 5,
+    "failureThreshold": 10
+  }
+} 
