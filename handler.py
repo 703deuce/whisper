@@ -101,10 +101,16 @@ def transcribe_audio(
     filename: str,
     model: str = "whisper-large-v2",
     language: Optional[str] = None,
+    prompt: Optional[str] = None,
     response_format: str = "json",
-    timestamp_granularities: str = "segment",
+    temperature: float = 0.0,
+    timestamp_granularities: List[str] = ["segment"],
+    stream: bool = False,
+    hotwords: Optional[str] = None,
+    suppress_numerals: bool = True,
+    highlight_words: bool = False,
     diarize: bool = False,
-    align: bool = False,
+    align: bool = True,
     min_speakers: Optional[int] = None,
     max_speakers: Optional[int] = None
 ) -> Dict[str, Any]:
@@ -170,7 +176,7 @@ def transcribe_audio(
                 }
                 
                 # Add word-level timestamps if requested
-                if timestamp_granularities == "word":
+                if "word" in timestamp_granularities:
                     for segment in result.get("segments", []):
                         if "words" in segment:
                             response["word_timestamps"].extend(segment["words"])
@@ -185,6 +191,128 @@ def transcribe_audio(
     except Exception as e:
         logger.error(f"Transcription error: {str(e)}")
         return {"error": f"Transcription failed: {str(e)}"}
+
+def translate_audio(
+    file_content: bytes,
+    filename: str,
+    model: str = "whisper-large-v2",
+    prompt: Optional[str] = None,
+    response_format: str = "json",
+    temperature: float = 0.0
+) -> Dict[str, Any]:
+    """Process audio translation request (translate to English)"""
+    
+    if not models_initialized:
+        if not initialize_models():
+            return {"error": "Models not initialized"}
+    
+    try:
+        # Save uploaded file
+        audio_path = process_audio_file(file_content, filename)
+        
+        try:
+            # Load audio and transcribe (WhisperX translates to English automatically)
+            import whisperx
+            audio = whisperx.load_audio(audio_path)
+            
+            # For translation, we force the task to be 'translate' and output language to English
+            result = whisper_model.transcribe(
+                audio, 
+                batch_size=16, 
+                task="translate",  # This forces translation to English
+                language=None      # Auto-detect source language
+            )
+            
+            # Format response based on requested format
+            if response_format == "srt":
+                return {"text": format_srt(result["segments"]), "format": "srt"}
+            elif response_format == "vtt":
+                return {"text": format_vtt(result["segments"]), "format": "vtt"}
+            else:
+                # JSON response
+                return {
+                    "text": result["text"],
+                    "segments": result["segments"],
+                    "language": "en"  # Always English for translations
+                }
+                
+        finally:
+            # Clean up temporary file
+            if os.path.exists(audio_path):
+                os.unlink(audio_path)
+                
+    except Exception as e:
+        logger.error(f"Translation error: {str(e)}")
+        return {"error": f"Translation failed: {str(e)}"}
+
+def load_model(model_name: str) -> Dict[str, Any]:
+    """Load a specific model into memory"""
+    global whisper_model, models_initialized
+    
+    try:
+        import whisperx
+        import torch
+        
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        compute_type = "float16" if device == "cuda" else "int8"
+        
+        logger.info(f"Loading model: {model_name}")
+        
+        # Load the requested model
+        whisper_model = whisperx.load_model(
+            model_name, 
+            device=device, 
+            compute_type=compute_type
+        )
+        
+        models_initialized = True
+        logger.info(f"✅ Model {model_name} loaded successfully!")
+        
+        return {
+            "status": "success",
+            "message": f"Model {model_name} loaded successfully",
+            "model": model_name,
+            "device": device,
+            "compute_type": compute_type
+        }
+        
+    except Exception as e:
+        logger.error(f"Failed to load model {model_name}: {str(e)}")
+        return {"error": f"Failed to load model {model_name}: {str(e)}"}
+
+def unload_model(model_name: str) -> Dict[str, Any]:
+    """Unload a specific model from memory"""
+    global whisper_model, align_model, diarize_model, models_initialized
+    
+    try:
+        if model_name == "whisper" or model_name == "all":
+            whisper_model = None
+            logger.info("Whisper model unloaded")
+        
+        if model_name == "align" or model_name == "all":
+            align_model = None
+            logger.info("Align model unloaded")
+        
+        if model_name == "diarize" or model_name == "all":
+            diarize_model = None
+            logger.info("Diarize model unloaded")
+        
+        if model_name == "all":
+            models_initialized = False
+            logger.info("All models unloaded")
+        
+        # Force garbage collection
+        import gc
+        gc.collect()
+        
+        return {
+            "status": "success",
+            "message": f"Model {model_name} unloaded successfully"
+        }
+        
+    except Exception as e:
+        logger.error(f"Failed to unload model {model_name}: {str(e)}")
+        return {"error": f"Failed to unload model {model_name}: {str(e)}"}
 
 def format_srt(segments: List[Dict]) -> str:
     """Format segments as SRT subtitle file"""
@@ -266,17 +394,24 @@ def handler(event: Dict[str, Any]) -> Dict[str, Any]:
     Expected input format:
     {
         "input": {
-            "action": "transcribe" | "health" | "models",
-            "file_content": "base64_encoded_audio_file",  # for transcribe
-            "filename": "audio.wav",                        # for transcribe
+            "action": "transcribe" | "translate" | "health" | "models" | "load_model" | "unload_model",
+            "file_content": "base64_encoded_audio_file",  # for transcribe/translate
+            "filename": "audio.wav",                        # for transcribe/translate
             "model": "whisper-large-v2",                   # optional
-            "language": "en",                              # optional
+            "language": "en",                              # optional (transcribe only)
+            "prompt": "optional prompt",                   # optional
             "response_format": "json",                     # optional
-            "timestamp_granularities": "segment",          # optional
+            "temperature": 0.0,                            # optional
+            "timestamp_granularities": ["segment"],        # optional list
+            "stream": false,                               # optional
+            "hotwords": "optional hotwords",               # optional
+            "suppress_numerals": true,                     # optional
+            "highlight_words": false,                      # optional
             "diarize": false,                              # optional
-            "align": false,                                # optional
+            "align": true,                                 # optional
             "min_speakers": 2,                             # optional
-            "max_speakers": 4                              # optional
+            "max_speakers": 4,                             # optional
+            "model_name": "whisper-large-v2"               # for load_model/unload_model
         }
     }
     """
@@ -292,6 +427,44 @@ def handler(event: Dict[str, Any]) -> Dict[str, Any]:
         
         elif action == "models":
             return list_models()
+        
+        elif action == "load_model":
+            model_name = input_data.get("model_name", "large-v2")
+            return load_model(model_name)
+        
+        elif action == "unload_model":
+            model_name = input_data.get("model_name", "whisper")
+            return unload_model(model_name)
+        
+        elif action == "translate":
+            # Validate required parameters
+            if "file_content" not in input_data:
+                return {"error": "file_content is required for translation"}
+            
+            if "filename" not in input_data:
+                return {"error": "filename is required for translation"}
+            
+            # Decode base64 file content
+            try:
+                file_content = base64.b64decode(input_data["file_content"])
+            except Exception as e:
+                return {"error": f"Invalid base64 file content: {str(e)}"}
+            
+            # Extract parameters
+            filename = input_data.get("filename", "audio.wav")
+            model = input_data.get("model", "whisper-large-v2")
+            prompt = input_data.get("prompt")
+            response_format = input_data.get("response_format", "json")
+            temperature = input_data.get("temperature", 0.0)
+            
+            return translate_audio(
+                file_content=file_content,
+                filename=filename,
+                model=model,
+                prompt=prompt,
+                response_format=response_format,
+                temperature=temperature
+            )
         
         elif action == "transcribe":
             # Validate required parameters
@@ -311,10 +484,16 @@ def handler(event: Dict[str, Any]) -> Dict[str, Any]:
             filename = input_data.get("filename", "audio.wav")
             model = input_data.get("model", "whisper-large-v2")
             language = input_data.get("language")
+            prompt = input_data.get("prompt")
             response_format = input_data.get("response_format", "json")
-            timestamp_granularities = input_data.get("timestamp_granularities", "segment")
+            temperature = input_data.get("temperature", 0.0)
+            timestamp_granularities = input_data.get("timestamp_granularities", ["segment"])
+            stream = input_data.get("stream", False)
+            hotwords = input_data.get("hotwords")
+            suppress_numerals = input_data.get("suppress_numerals", True)
+            highlight_words = input_data.get("highlight_words", False)
             diarize = input_data.get("diarize", False)
-            align = input_data.get("align", False)
+            align = input_data.get("align", True)
             min_speakers = input_data.get("min_speakers")
             max_speakers = input_data.get("max_speakers")
             
@@ -323,8 +502,14 @@ def handler(event: Dict[str, Any]) -> Dict[str, Any]:
                 filename=filename,
                 model=model,
                 language=language,
+                prompt=prompt,
                 response_format=response_format,
+                temperature=temperature,
                 timestamp_granularities=timestamp_granularities,
+                stream=stream,
+                hotwords=hotwords,
+                suppress_numerals=suppress_numerals,
+                highlight_words=highlight_words,
                 diarize=diarize,
                 align=align,
                 min_speakers=min_speakers,
