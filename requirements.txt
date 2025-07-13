@@ -10,4 +10,8 @@ whisperx
 ffmpeg-python
 
 # Testing
-requests 
+requests
+
+# Fix PyTorch compatibility - upgrade torchvision to match torch 2.7.1
+torchvision>=0.22.0
+torchaudio>=2.7.0 
