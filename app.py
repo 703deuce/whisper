@@ -2,10 +2,9 @@ import os
 import tempfile
 import uuid
 from typing import Optional, List
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
 from pydantic import BaseModel
-import whisperx
-import torch
 import logging
 from datetime import datetime
 
@@ -13,18 +12,13 @@ from datetime import datetime
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-app = FastAPI(
-    title="WhisperX API Server",
-    description="OpenAI Whisper API compatible server with speaker diarization and word alignment",
-    version="1.0.0"
-)
-
 # Global variables for model caching
 whisper_model = None
 align_model = None
 diarize_model = None
 device = None
 compute_type = None
+models_initialized = False
 
 class TranscriptionResponse(BaseModel):
     text: str
@@ -46,28 +40,43 @@ class ModelInfo(BaseModel):
     owned_by: str
 
 def initialize_models():
-    """Initialize WhisperX models"""
-    global whisper_model, align_model, diarize_model, device, compute_type
+    """Initialize WhisperX models with better error handling"""
+    global whisper_model, align_model, diarize_model, device, compute_type, models_initialized
     
-    # Determine device and compute type
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    compute_type = "float16" if device == "cuda" else "float32"
-    
-    logger.info(f"Using device: {device}, compute_type: {compute_type}")
-    
-    # Load whisper model
-    model_name = os.getenv("WHISPER_MODEL", "large-v2")
     try:
-        whisper_model = whisperx.load_model(model_name, device, compute_type=compute_type)
-        logger.info(f"Loaded Whisper model: {model_name}")
+        # Import here to avoid import errors during container build
+        import whisperx
+        import torch
+        
+        # Determine device and compute type
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        compute_type = "float16" if device == "cuda" else "float32"
+        
+        logger.info(f"Using device: {device}, compute_type: {compute_type}")
+        
+        # Load whisper model
+        model_name = os.getenv("WHISPER_MODEL", "large-v2")
+        try:
+            whisper_model = whisperx.load_model(model_name, device, compute_type=compute_type)
+            logger.info(f"Loaded Whisper model: {model_name}")
+            models_initialized = True
+        except Exception as e:
+            logger.error(f"Failed to load Whisper model: {e}")
+            # Don't raise exception - let the server start anyway
+            models_initialized = False
+            
+    except ImportError as e:
+        logger.error(f"Failed to import WhisperX: {e}")
+        models_initialized = False
     except Exception as e:
-        logger.error(f"Failed to load Whisper model: {e}")
-        raise
+        logger.error(f"Failed to initialize models: {e}")
+        models_initialized = False
 
 def load_align_model(language_code: str):
     """Load alignment model for specific language"""
     global align_model
     try:
+        import whisperx
         align_model, metadata = whisperx.load_align_model(language_code=language_code, device=device)
         return align_model, metadata
     except Exception as e:
@@ -78,6 +87,7 @@ def load_diarize_model():
     """Load diarization model"""
     global diarize_model
     try:
+        import whisperx
         hf_token = os.getenv("HF_TOKEN")
         if not hf_token:
             logger.warning("HF_TOKEN not found, diarization may not work")
@@ -90,16 +100,28 @@ def load_diarize_model():
         logger.error(f"Failed to load diarization model: {e}")
         return None
 
-@app.on_event("startup")
-async def startup_event():
-    """Initialize models on startup"""
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Modern FastAPI lifespan manager"""
+    # Startup
+    logger.info("Starting up WhisperX API server...")
     initialize_models()
+    yield
+    # Shutdown
+    logger.info("Shutting down WhisperX API server...")
+
+app = FastAPI(
+    title="WhisperX API Server",
+    description="OpenAI Whisper API compatible server with speaker diarization and word alignment",
+    version="1.0.0",
+    lifespan=lifespan
+)
 
 @app.get("/healthcheck", response_model=HealthResponse)
 async def healthcheck():
     """Health check endpoint"""
     return HealthResponse(
-        status="healthy",
+        status="healthy" if models_initialized else "degraded",
         timestamp=datetime.now().isoformat(),
         device=device or "unknown",
         models_loaded={
@@ -156,8 +178,8 @@ async def transcribe_audio(
 ):
     """Transcribe audio with optional diarization and alignment"""
     
-    if whisper_model is None:
-        raise HTTPException(status_code=500, detail="Whisper model not loaded")
+    if not models_initialized or whisper_model is None:
+        raise HTTPException(status_code=503, detail="WhisperX models not loaded. Please try again later.")
     
     # Validate file
     if not file.filename:
@@ -167,6 +189,9 @@ async def transcribe_audio(
     file_id = str(uuid.uuid4())
     
     try:
+        # Import here to avoid issues during container build
+        import whisperx
+        
         # Save uploaded file temporarily
         with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(file.filename)[1]) as tmp_file:
             content = await file.read()
@@ -271,7 +296,11 @@ def format_timestamp(seconds: float) -> str:
 @app.get("/")
 async def root():
     """Root endpoint"""
-    return {"message": "WhisperX API Server is running", "docs": "/docs"}
+    return {
+        "message": "WhisperX API Server is running", 
+        "docs": "/docs",
+        "models_loaded": models_initialized
+    }
 
 if __name__ == "__main__":
     import uvicorn

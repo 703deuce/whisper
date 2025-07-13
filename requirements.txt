@@ -7,4 +7,7 @@ python-multipart
 whisperx
 
 # Audio processing essentials
-ffmpeg-python 
+ffmpeg-python
+
+# Testing
+requests 
