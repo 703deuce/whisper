@@ -3,11 +3,9 @@ import tempfile
 import uuid
 from typing import Optional, List
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
-from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import whisperx
 import torch
-import gc
 import logging
 from datetime import datetime
 
