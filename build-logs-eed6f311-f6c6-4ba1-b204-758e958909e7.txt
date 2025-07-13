@@ -1,0 +1,1376 @@
+2025-07-13T00:45:03.036Z [INFO] Creating cache directory.
+2025-07-13T00:45:08.176Z [INFO] Build using docker
+2025-07-13T00:45:08.275Z [INFO] #0 building with "eager_blackburn" instance using docker-container driver
+2025-07-13T00:45:08.277Z [INFO] 
+2025-07-13T00:45:08.278Z [INFO] #1 [internal] booting buildkit
+2025-07-13T00:45:08.426Z [INFO] #1 pulling image moby/buildkit:v0.17.2
+2025-07-13T00:45:09.449Z [INFO] #1 pulling image moby/buildkit:v0.17.2 1.2s done
+2025-07-13T00:45:09.600Z [INFO] #1 creating container buildx_buildkit_eager_blackburn0
+2025-07-13T00:45:10.097Z [INFO] #1 creating container buildx_buildkit_eager_blackburn0 0.6s done
+2025-07-13T00:45:10.310Z [INFO] #1 DONE 1.8s
+2025-07-13T00:45:10.313Z [INFO] 
+2025-07-13T00:45:10.315Z [INFO] #2 [internal] load build definition from Dockerfile
+2025-07-13T00:45:10.317Z [INFO] #2 transferring dockerfile: 1.02kB done
+2025-07-13T00:45:10.319Z [INFO] #2 DONE 0.0s
+2025-07-13T00:45:10.321Z [INFO] 
+2025-07-13T00:45:10.322Z [INFO] #3 [internal] load metadata for docker.io/runpod/pytorch:2.1.0-py3.10-cuda11.8.0-devel-ubuntu22.04
+2025-07-13T00:45:10.701Z [INFO] #3 ...
+2025-07-13T00:45:10.704Z [INFO] 
+2025-07-13T00:45:10.706Z [INFO] #4 [auth] runpod/pytorch:pull token for registry-1.docker.io
+2025-07-13T00:45:10.708Z [INFO] #4 DONE 0.0s
+2025-07-13T00:45:10.851Z [INFO] 
+2025-07-13T00:45:10.853Z [INFO] #3 [internal] load metadata for docker.io/runpod/pytorch:2.1.0-py3.10-cuda11.8.0-devel-ubuntu22.04
+2025-07-13T00:45:11.479Z [INFO] #3 DONE 1.3s
+2025-07-13T00:45:11.676Z [INFO] 
+2025-07-13T00:45:11.679Z [INFO] #5 [internal] load .dockerignore
+2025-07-13T00:45:11.681Z [INFO] #5 transferring context: 2B done
+2025-07-13T00:45:11.683Z [INFO] #5 DONE 0.0s
+2025-07-13T00:45:11.685Z [INFO] 
+2025-07-13T00:45:11.687Z [INFO] #6 [1/8] FROM docker.io/runpod/pytorch:2.1.0-py3.10-cuda11.8.0-devel-ubuntu22.04@sha256:2594f25beeef751aeebcc207ba4c45a382ba174655f01e15cbbfad0e2bdb5ef8
+2025-07-13T00:45:11.689Z [INFO] #6 resolve docker.io/runpod/pytorch:2.1.0-py3.10-cuda11.8.0-devel-ubuntu22.04@sha256:2594f25beeef751aeebcc207ba4c45a382ba174655f01e15cbbfad0e2bdb5ef8 done
+2025-07-13T00:45:11.691Z [INFO] #6 DONE 0.0s
+2025-07-13T00:45:11.693Z [INFO] 
+2025-07-13T00:45:11.694Z [INFO] #7 importing cache manifest from local:2731016342938906163
+2025-07-13T00:45:11.696Z [INFO] #7 inferred cache manifest type: application/vnd.oci.image.index.v1+json done
+2025-07-13T00:45:11.698Z [INFO] #7 DONE 0.0s
+2025-07-13T00:45:11.700Z [INFO] 
+2025-07-13T00:45:11.701Z [INFO] #8 [internal] load build context
+2025-07-13T00:45:11.702Z [INFO] #8 transferring context: 18.12kB done
+2025-07-13T00:45:11.702Z [INFO] #8 DONE 0.0s
+2025-07-13T00:45:11.703Z [INFO] 
+2025-07-13T00:45:11.704Z [INFO] #9 [2/8] RUN apt-get update && apt-get install -y     ffmpeg     libsndfile1     && rm -rf /var/lib/apt/lists/*
+2025-07-13T00:45:11.705Z [INFO] #9 CACHED
+2025-07-13T00:45:11.706Z [INFO] 
+2025-07-13T00:45:11.707Z [INFO] #10 [3/8] WORKDIR /app
+2025-07-13T00:45:11.707Z [INFO] #10 sha256:6b851dcae6ca1461dde247915abc5048061f34332929ca8fb37d9dc18f2e2f44 5.24MB / 29.53MB 0.2s
+2025-07-13T00:45:11.828Z [INFO] #10 sha256:6b851dcae6ca1461dde247915abc5048061f34332929ca8fb37d9dc18f2e2f44 14.68MB / 29.53MB 0.3s
+2025-07-13T00:45:11.979Z [INFO] #10 sha256:6b851dcae6ca1461dde247915abc5048061f34332929ca8fb37d9dc18f2e2f44 24.12MB / 29.53MB 0.5s
+2025-07-13T00:45:12.098Z [INFO] #10 sha256:6b851dcae6ca1461dde247915abc5048061f34332929ca8fb37d9dc18f2e2f44 29.53MB / 29.53MB 0.6s done
+2025-07-13T00:45:12.250Z [INFO] #10 extracting sha256:6b851dcae6ca1461dde247915abc5048061f34332929ca8fb37d9dc18f2e2f44
+2025-07-13T00:45:13.084Z [INFO] #10 extracting sha256:6b851dcae6ca1461dde247915abc5048061f34332929ca8fb37d9dc18f2e2f44 1.0s done
+2025-07-13T00:45:13.327Z [INFO] #10 sha256:4586c00479c64413175c7b90a66073cfd574ca0a9ee099495ba8a58a0819d8b9 4.62MB / 4.62MB 0.1s done
+2025-07-13T00:45:13.330Z [INFO] #10 extracting sha256:4586c00479c64413175c7b90a66073cfd574ca0a9ee099495ba8a58a0819d8b9
+2025-07-13T00:45:13.563Z [INFO] #10 extracting sha256:4586c00479c64413175c7b90a66073cfd574ca0a9ee099495ba8a58a0819d8b9 0.4s done
+2025-07-13T00:45:13.718Z [INFO] #10 sha256:4304fa233a80418a848565c712c6ebcb670c1c2d076c419f65f8bf3e49526b08 7.34MB / 56.23MB 0.2s
+2025-07-13T00:45:13.867Z [INFO] #10 sha256:4304fa233a80418a848565c712c6ebcb670c1c2d076c419f65f8bf3e49526b08 15.73MB / 56.23MB 0.3s
+2025-07-13T00:45:14.017Z [INFO] #10 sha256:4304fa233a80418a848565c712c6ebcb670c1c2d076c419f65f8bf3e49526b08 24.12MB / 56.23MB 0.5s
+2025-07-13T00:45:14.168Z [INFO] #10 sha256:4304fa233a80418a848565c712c6ebcb670c1c2d076c419f65f8bf3e49526b08 33.55MB / 56.23MB 0.6s
+2025-07-13T00:45:14.317Z [INFO] #10 sha256:4304fa233a80418a848565c712c6ebcb670c1c2d076c419f65f8bf3e49526b08 42.99MB / 56.23MB 0.8s
+2025-07-13T00:45:14.467Z [INFO] #10 sha256:4304fa233a80418a848565c712c6ebcb670c1c2d076c419f65f8bf3e49526b08 52.43MB / 56.23MB 0.9s
+2025-07-13T00:45:14.689Z [INFO] #10 sha256:4304fa233a80418a848565c712c6ebcb670c1c2d076c419f65f8bf3e49526b08 56.23MB / 56.23MB 1.0s done
+2025-07-13T00:45:14.692Z [INFO] #10 extracting sha256:4304fa233a80418a848565c712c6ebcb670c1c2d076c419f65f8bf3e49526b08
+2025-07-13T00:45:15.144Z [INFO] #10 extracting sha256:4304fa233a80418a848565c712c6ebcb670c1c2d076c419f65f8bf3e49526b08 0.6s done
+2025-07-13T00:45:15.394Z [INFO] #10 sha256:afa3f70b397f64c9ae4c406c33113bc1929d64b744b21f934978e7e4def3c7b6 181B / 181B done
+2025-07-13T00:45:15.397Z [INFO] #10 extracting sha256:afa3f70b397f64c9ae4c406c33113bc1929d64b744b21f934978e7e4def3c7b6 0.0s done
+2025-07-13T00:45:15.399Z [INFO] #10 sha256:d963a42bc71212aa841b9e02f08b835b9c54a833eb2ace0733666774ca570cef 6.88kB / 6.88kB 0.0s done
+2025-07-13T00:45:15.401Z [INFO] #10 extracting sha256:d963a42bc71212aa841b9e02f08b835b9c54a833eb2ace0733666774ca570cef 0.0s done
+2025-07-13T00:45:15.402Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 0B / 1.38GB 0.2s
+2025-07-13T00:45:16.596Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 69.21MB / 1.38GB 1.4s
+2025-07-13T00:45:17.796Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 143.65MB / 1.38GB 2.6s
+2025-07-13T00:45:18.996Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 218.10MB / 1.38GB 3.8s
+2025-07-13T00:45:20.195Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 293.60MB / 1.38GB 5.0s
+2025-07-13T00:45:21.396Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 369.10MB / 1.38GB 6.2s
+2025-07-13T00:45:22.595Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 444.60MB / 1.38GB 7.4s
+2025-07-13T00:45:23.795Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 518.00MB / 1.38GB 8.6s
+2025-07-13T00:45:24.995Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 593.49MB / 1.38GB 9.8s
+2025-07-13T00:45:26.196Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 666.89MB / 1.38GB 11.0s
+2025-07-13T00:45:27.396Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 742.39MB / 1.38GB 12.2s
+2025-07-13T00:45:28.595Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 814.74MB / 1.38GB 13.4s
+2025-07-13T00:45:29.796Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 889.19MB / 1.38GB 14.6s
+2025-07-13T00:45:30.996Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 960.50MB / 1.38GB 15.8s
+2025-07-13T00:45:32.196Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 1.04GB / 1.38GB 17.0s
+2025-07-13T00:45:33.395Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 1.11GB / 1.38GB 18.2s
+2025-07-13T00:45:34.595Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 1.19GB / 1.38GB 19.4s
+2025-07-13T00:45:35.795Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 1.26GB / 1.38GB 20.6s
+2025-07-13T00:45:36.996Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 1.34GB / 1.38GB 21.8s
+2025-07-13T00:45:37.708Z [INFO] #10 sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 1.38GB / 1.38GB 22.5s done
+2025-07-13T00:45:37.859Z [INFO] #10 extracting sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2
+2025-07-13T00:45:48.101Z [INFO] #10 extracting sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 10.4s done
+2025-07-13T00:45:48.223Z [INFO] #10 sha256:c4a5e6c74f13248b950458aa8c3ea386ef6e8b555cd7926a5debbeef380e3685 63.68kB / 63.68kB done
+2025-07-13T00:45:48.226Z [INFO] #10 extracting sha256:c4a5e6c74f13248b950458aa8c3ea386ef6e8b555cd7926a5debbeef380e3685 0.0s done
+2025-07-13T00:45:48.228Z [INFO] #10 sha256:afec03310895927dd70d086aff541fae64ccffe2132adbf453a5bf4a60c62f9f 1.68kB / 1.68kB done
+2025-07-13T00:45:48.230Z [INFO] #10 extracting sha256:afec03310895927dd70d086aff541fae64ccffe2132adbf453a5bf4a60c62f9f 0.0s done
+2025-07-13T00:45:48.232Z [INFO] #10 sha256:44d8a5c35cf0f3feaab663cc8987fbfd68aa3c2e0dab3b7c0c553bb7e51140f6 1.52kB / 1.52kB done
+2025-07-13T00:45:48.234Z [INFO] #10 extracting sha256:44d8a5c35cf0f3feaab663cc8987fbfd68aa3c2e0dab3b7c0c553bb7e51140f6 0.0s done
+2025-07-13T00:45:48.379Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 0B / 2.46GB 0.2s
+2025-07-13T00:45:50.778Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 126.88MB / 2.46GB 2.6s
+2025-07-13T00:45:53.028Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 257.95MB / 2.46GB 4.8s
+2025-07-13T00:45:55.135Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 386.92MB / 2.46GB 6.9s
+2025-07-13T00:45:57.228Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 516.95MB / 2.46GB 9.0s
+2025-07-13T00:45:59.328Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 648.02MB / 2.46GB 11.1s
+2025-07-13T00:46:01.428Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 779.09MB / 2.46GB 13.2s
+2025-07-13T00:46:03.528Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 911.21MB / 2.46GB 15.3s
+2025-07-13T00:46:05.628Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 1.04GB / 2.46GB 17.4s
+2025-07-13T00:46:07.728Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 1.17GB / 2.46GB 19.5s
+2025-07-13T00:46:09.828Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 1.29GB / 2.46GB 21.6s
+2025-07-13T00:46:11.928Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 1.42GB / 2.46GB 23.7s
+2025-07-13T00:46:14.028Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 1.55GB / 2.46GB 25.8s
+2025-07-13T00:46:16.128Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 1.68GB / 2.46GB 27.9s
+2025-07-13T00:46:18.228Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 1.80GB / 2.46GB 30.0s
+2025-07-13T00:46:20.328Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 1.93GB / 2.46GB 32.1s
+2025-07-13T00:46:22.428Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 2.06GB / 2.46GB 34.2s
+2025-07-13T00:46:24.528Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 2.19GB / 2.46GB 36.3s
+2025-07-13T00:46:26.628Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 2.32GB / 2.46GB 38.4s
+2025-07-13T00:46:28.728Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 2.45GB / 2.46GB 40.5s
+2025-07-13T00:46:29.117Z [INFO] #10 sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 2.46GB / 2.46GB 40.7s done
+2025-07-13T00:46:29.120Z [INFO] #10 extracting sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8
+2025-07-13T00:46:49.325Z [INFO] #10 extracting sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 20.4s done
+2025-07-13T00:46:49.561Z [INFO] #10 sha256:e5f5c15a666415cd3010024e939e14c0051fbebedf71e5c10e2a95f6496e1c02 88.21kB / 88.21kB 0.0s done
+2025-07-13T00:46:49.564Z [INFO] #10 extracting sha256:e5f5c15a666415cd3010024e939e14c0051fbebedf71e5c10e2a95f6496e1c02 0.0s done
+2025-07-13T00:46:49.566Z [INFO] #10 sha256:540509e5c7b1197cd58a50ac766c12527e02ff6f6976038388540d7e208377f3 99B / 99B done
+2025-07-13T00:46:49.568Z [INFO] #10 extracting sha256:540509e5c7b1197cd58a50ac766c12527e02ff6f6976038388540d7e208377f3 0.0s done
+2025-07-13T00:46:49.578Z [INFO] #10 sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 3.15MB / 205.80MB 0.2s
+2025-07-13T00:46:49.863Z [INFO] #10 sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 16.78MB / 205.80MB 0.5s
+2025-07-13T00:46:50.164Z [INFO] #10 sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 34.60MB / 205.80MB 0.8s
+2025-07-13T00:46:50.463Z [INFO] #10 sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 51.38MB / 205.80MB 1.1s
+2025-07-13T00:46:50.763Z [INFO] #10 sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 68.16MB / 205.80MB 1.4s
+2025-07-13T00:46:51.063Z [INFO] #10 sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 88.08MB / 205.80MB 1.7s
+2025-07-13T00:46:51.213Z [INFO] #10 sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 98.57MB / 205.80MB 1.8s
+2025-07-13T00:46:51.363Z [INFO] #10 sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 109.05MB / 205.80MB 2.0s
+2025-07-13T00:46:51.664Z [INFO] #10 sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 127.93MB / 205.80MB 2.3s
+2025-07-13T00:46:51.964Z [INFO] #10 sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 146.80MB / 205.80MB 2.6s
+2025-07-13T00:46:52.264Z [INFO] #10 sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 165.68MB / 205.80MB 2.9s
+2025-07-13T00:46:52.563Z [INFO] #10 sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 183.50MB / 205.80MB 3.2s
+2025-07-13T00:46:52.864Z [INFO] #10 sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 202.38MB / 205.80MB 3.5s
+2025-07-13T00:46:52.975Z [INFO] #10 sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 205.80MB / 205.80MB 3.6s done
+2025-07-13T00:46:53.126Z [INFO] #10 extracting sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1
+2025-07-13T00:46:58.435Z [INFO] #10 extracting sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 5.5s done
+2025-07-13T00:46:58.593Z [INFO] #10 sha256:703b840faf29ab8393ad78fe09078c6e429ff009e2e52e6507d89341d9f61aef 6.29MB / 10.62MB 0.2s
+2025-07-13T00:46:58.822Z [INFO] #10 sha256:703b840faf29ab8393ad78fe09078c6e429ff009e2e52e6507d89341d9f61aef 10.62MB / 10.62MB 0.2s done
+2025-07-13T00:46:58.825Z [INFO] #10 extracting sha256:703b840faf29ab8393ad78fe09078c6e429ff009e2e52e6507d89341d9f61aef
+2025-07-13T00:46:59.449Z [INFO] #10 extracting sha256:703b840faf29ab8393ad78fe09078c6e429ff009e2e52e6507d89341d9f61aef 0.8s done
+2025-07-13T00:46:59.648Z [INFO] #10 sha256:621b36751ee7210b11852061c80e4255877b67c00e1755edaf36beb46fc2c5fa 92B / 92B done
+2025-07-13T00:46:59.650Z [INFO] #10 extracting sha256:621b36751ee7210b11852061c80e4255877b67c00e1755edaf36beb46fc2c5fa 0.0s done
+2025-07-13T00:46:59.653Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 0B / 2.49GB 0.2s
+2025-07-13T00:47:01.900Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 128.97MB / 2.49GB 2.4s
+2025-07-13T00:47:04.299Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 262.14MB / 2.49GB 4.8s
+2025-07-13T00:47:06.400Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 396.36MB / 2.49GB 6.9s
+2025-07-13T00:47:08.499Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 525.34MB / 2.49GB 9.0s
+2025-07-13T00:47:10.600Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 656.41MB / 2.49GB 11.1s
+2025-07-13T00:47:12.700Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 790.63MB / 2.49GB 13.2s
+2025-07-13T00:47:14.799Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 921.70MB / 2.49GB 15.3s
+2025-07-13T00:47:16.900Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 1.05GB / 2.49GB 17.4s
+2025-07-13T00:47:18.999Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 1.18GB / 2.49GB 19.5s
+2025-07-13T00:47:21.100Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 1.31GB / 2.49GB 21.6s
+2025-07-13T00:47:23.200Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 1.44GB / 2.49GB 23.7s
+2025-07-13T00:47:25.149Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 1.56GB / 2.49GB 25.7s
+2025-07-13T00:47:27.249Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 1.70GB / 2.49GB 27.8s
+2025-07-13T00:47:29.349Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 1.83GB / 2.49GB 29.9s
+2025-07-13T00:47:31.449Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 1.96GB / 2.49GB 32.0s
+2025-07-13T00:47:33.549Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 2.09GB / 2.49GB 34.1s
+2025-07-13T00:47:35.499Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 2.21GB / 2.49GB 36.0s
+2025-07-13T00:47:37.599Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 2.34GB / 2.49GB 38.1s
+2025-07-13T00:47:39.700Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 2.48GB / 2.49GB 40.2s
+2025-07-13T00:47:40.205Z [INFO] #10 sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 2.49GB / 2.49GB 40.6s done
+2025-07-13T00:47:40.208Z [INFO] #10 extracting sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb
+2025-07-13T00:48:06.720Z [INFO] #10 extracting sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb 26.7s done
+2025-07-13T00:48:06.878Z [INFO] #10 sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553 6.29MB / 78.85MB 0.2s
+2025-07-13T00:48:07.028Z [INFO] #10 sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553 15.73MB / 78.85MB 0.3s
+2025-07-13T00:48:07.178Z [INFO] #10 sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553 23.07MB / 78.85MB 0.5s
+2025-07-13T00:48:07.327Z [INFO] #10 sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553 32.51MB / 78.85MB 0.6s
+2025-07-13T00:48:07.478Z [INFO] #10 sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553 39.85MB / 78.85MB 0.8s
+2025-07-13T00:48:07.627Z [INFO] #10 sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553 48.23MB / 78.85MB 0.9s
+2025-07-13T00:48:07.778Z [INFO] #10 sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553 58.72MB / 78.85MB 1.1s
+2025-07-13T00:48:07.928Z [INFO] #10 sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553 68.16MB / 78.85MB 1.2s
+2025-07-13T00:48:08.078Z [INFO] #10 sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553 77.59MB / 78.85MB 1.4s
+2025-07-13T00:48:08.285Z [INFO] #10 sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553 78.85MB / 78.85MB 1.4s done
+2025-07-13T00:48:08.288Z [INFO] #10 extracting sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553
+2025-07-13T00:48:13.208Z [INFO] #10 extracting sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553 5.1s done
+2025-07-13T00:48:13.365Z [INFO] #10 sha256:81790d1a232758f29a8890a170ed27d000348dba1ce0ba299ea1e570ad71f6e0 5.24MB / 23.41MB 0.2s
+2025-07-13T00:48:13.516Z [INFO] #10 sha256:81790d1a232758f29a8890a170ed27d000348dba1ce0ba299ea1e570ad71f6e0 12.58MB / 23.41MB 0.3s
+2025-07-13T00:48:13.666Z [INFO] #10 sha256:81790d1a232758f29a8890a170ed27d000348dba1ce0ba299ea1e570ad71f6e0 22.02MB / 23.41MB 0.5s
+2025-07-13T00:48:13.842Z [INFO] #10 sha256:81790d1a232758f29a8890a170ed27d000348dba1ce0ba299ea1e570ad71f6e0 23.41MB / 23.41MB 0.5s done
+2025-07-13T00:48:13.844Z [INFO] #10 extracting sha256:81790d1a232758f29a8890a170ed27d000348dba1ce0ba299ea1e570ad71f6e0
+2025-07-13T00:48:15.092Z [INFO] #10 extracting sha256:81790d1a232758f29a8890a170ed27d000348dba1ce0ba299ea1e570ad71f6e0 1.4s done
+2025-07-13T00:48:15.249Z [INFO] #10 sha256:c896f96eac0e1a1e8005414896bffa52728168a49de44387b12c0932232ed59f 8.39MB / 23.30MB 0.2s
+2025-07-13T00:48:15.400Z [INFO] #10 sha256:c896f96eac0e1a1e8005414896bffa52728168a49de44387b12c0932232ed59f 16.78MB / 23.30MB 0.3s
+2025-07-13T00:48:15.517Z [INFO] #10 sha256:c896f96eac0e1a1e8005414896bffa52728168a49de44387b12c0932232ed59f 23.30MB / 23.30MB 0.4s done
+2025-07-13T00:48:15.670Z [INFO] #10 extracting sha256:c896f96eac0e1a1e8005414896bffa52728168a49de44387b12c0932232ed59f
+2025-07-13T00:48:15.781Z [INFO] #10 extracting sha256:c896f96eac0e1a1e8005414896bffa52728168a49de44387b12c0932232ed59f 0.3s done
+2025-07-13T00:48:15.907Z [INFO] #10 sha256:52d067c95c51704869a11e3d320d67a2c8ff10aa610ec022ee5f8d1dc04635c8 240B / 240B done
+2025-07-13T00:48:15.909Z [INFO] #10 extracting sha256:52d067c95c51704869a11e3d320d67a2c8ff10aa610ec022ee5f8d1dc04635c8 0.0s done
+2025-07-13T00:48:15.911Z [INFO] #10 sha256:a6a98a6581c0431ace79eb47962770cfcc0897778ed28927bfc9905c4777af39 729B / 729B done
+2025-07-13T00:48:15.912Z [INFO] #10 extracting sha256:a6a98a6581c0431ace79eb47962770cfcc0897778ed28927bfc9905c4777af39 0.0s done
+2025-07-13T00:48:15.914Z [INFO] #10 sha256:24a27a9216b075f2f81518300a4ca1914171cef3fa5fb60fe5cb30bb45d379f3 753B / 753B done
+2025-07-13T00:48:15.916Z [INFO] #10 extracting sha256:24a27a9216b075f2f81518300a4ca1914171cef3fa5fb60fe5cb30bb45d379f3 0.0s done
+2025-07-13T00:48:16.022Z [INFO] #10 sha256:dcc5cb2e431749994aa9450c3319736a955560260ee2d7dfe68afc88258e6e05 324B / 324B done
+2025-07-13T00:48:16.024Z [INFO] #10 extracting sha256:dcc5cb2e431749994aa9450c3319736a955560260ee2d7dfe68afc88258e6e05 0.0s done
+2025-07-13T00:48:16.026Z [INFO] #10 sha256:6a0b9ce97b3d4a4a6e37a1a9d16237718f0187ab3307552c6951a4102232e9a7 1.05kB / 1.05kB done
+2025-07-13T00:48:16.028Z [INFO] #10 extracting sha256:6a0b9ce97b3d4a4a6e37a1a9d16237718f0187ab3307552c6951a4102232e9a7 0.0s done
+2025-07-13T00:48:16.031Z [INFO] #10 sha256:2997c68d7f1673dc961463a259687df0cc4605a5be2a31d2fbebfba8cad55424 1.05kB / 1.05kB done
+2025-07-13T00:48:16.033Z [INFO] #10 extracting sha256:2997c68d7f1673dc961463a259687df0cc4605a5be2a31d2fbebfba8cad55424 0.0s done
+2025-07-13T00:48:16.151Z [INFO] #10 sha256:007371b4c1e23dc80e02c62dd28077debb5791d3177cd4e69db12571a78f380c 236B / 236B done
+2025-07-13T00:48:16.154Z [INFO] #10 extracting sha256:007371b4c1e23dc80e02c62dd28077debb5791d3177cd4e69db12571a78f380c 0.0s done
+2025-07-13T00:48:16.156Z [INFO] #10 sha256:4fc6fac4ce28ba43ef1ae0eb16930a8920024dad0a19e14295f011fadb252938 1.57kB / 1.57kB done
+2025-07-13T00:48:16.158Z [INFO] #10 extracting sha256:4fc6fac4ce28ba43ef1ae0eb16930a8920024dad0a19e14295f011fadb252938 0.0s done
+2025-07-13T00:48:16.160Z [INFO] #10 sha256:d2d032fd34370514fbf6f51498b101a8f3958d47bb923a710a29448dce725539 1.64kB / 1.64kB done
+2025-07-13T00:48:16.162Z [INFO] #10 extracting sha256:d2d032fd34370514fbf6f51498b101a8f3958d47bb923a710a29448dce725539 0.0s done
+2025-07-13T00:48:16.305Z [INFO] #10 sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 8.39MB / 117.53MB 0.2s
+2025-07-13T00:48:16.455Z [INFO] #10 sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 16.78MB / 117.53MB 0.3s
+2025-07-13T00:48:16.606Z [INFO] #10 sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 25.17MB / 117.53MB 0.5s
+2025-07-13T00:48:16.755Z [INFO] #10 sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 33.55MB / 117.53MB 0.6s
+2025-07-13T00:48:16.905Z [INFO] #10 sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 42.99MB / 117.53MB 0.8s
+2025-07-13T00:48:17.055Z [INFO] #10 sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 52.43MB / 117.53MB 0.9s
+2025-07-13T00:48:17.205Z [INFO] #10 sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 62.91MB / 117.53MB 1.1s
+2025-07-13T00:48:17.356Z [INFO] #10 sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 72.35MB / 117.53MB 1.2s
+2025-07-13T00:48:17.505Z [INFO] #10 sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 81.79MB / 117.53MB 1.4s
+2025-07-13T00:48:17.656Z [INFO] #10 sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 91.23MB / 117.53MB 1.5s
+2025-07-13T00:48:17.805Z [INFO] #10 sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 100.66MB / 117.53MB 1.7s
+2025-07-13T00:48:17.955Z [INFO] #10 sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 111.15MB / 117.53MB 1.8s
+2025-07-13T00:48:18.094Z [INFO] #10 sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 117.53MB / 117.53MB 1.9s done
+2025-07-13T00:48:18.245Z [INFO] #10 extracting sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420
+2025-07-13T00:48:20.039Z [INFO] #10 extracting sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 1.9s done
+2025-07-13T00:48:20.260Z [INFO] #10 sha256:0277edf9904e8940c111d2029918531d262cc9d2f4662f88f1712eef6c653f1b 91B / 91B done
+2025-07-13T00:48:20.262Z [INFO] #10 extracting sha256:0277edf9904e8940c111d2029918531d262cc9d2f4662f88f1712eef6c653f1b 0.0s done
+2025-07-13T00:48:20.264Z [INFO] #10 CACHED
+2025-07-13T00:48:20.266Z [INFO] 
+2025-07-13T00:48:20.268Z [INFO] #11 [4/8] COPY requirements.txt .
+2025-07-13T00:48:20.269Z [INFO] #11 DONE 0.0s
+2025-07-13T00:48:20.271Z [INFO] 
+2025-07-13T00:48:20.272Z [INFO] #12 [5/8] RUN pip install --no-cache-dir -r requirements.txt
+2025-07-13T00:48:20.767Z [INFO] #12 0.657 Collecting fastapi (from -r requirements.txt (line 2))
+2025-07-13T00:48:20.877Z [INFO] #12 0.768   Downloading fastapi-0.116.1-py3-none-any.whl.metadata (28 kB)
+2025-07-13T00:48:21.073Z [INFO] #12 0.817 Collecting python-multipart (from -r requirements.txt (line 4))
+2025-07-13T00:48:21.076Z [INFO] #12 0.843   Downloading python_multipart-0.0.20-py3-none-any.whl.metadata (1.8 kB)
+2025-07-13T00:48:21.078Z [INFO] #12 0.964 Collecting whisperx (from -r requirements.txt (line 7))
+2025-07-13T00:48:21.224Z [INFO] #12 0.990   Downloading whisperx-3.4.2-py3-none-any.whl.metadata (16 kB)
+2025-07-13T00:48:21.227Z [INFO] #12 1.027 Collecting ffmpeg-python (from -r requirements.txt (line 10))
+2025-07-13T00:48:21.229Z [INFO] #12 1.054   Downloading ffmpeg_python-0.2.0-py3-none-any.whl.metadata (1.7 kB)
+2025-07-13T00:48:21.231Z [INFO] #12 1.055 Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 13)) (2.31.0)
+2025-07-13T00:48:21.233Z [INFO] #12 1.115 Collecting uvicorn[standard] (from -r requirements.txt (line 3))
+2025-07-13T00:48:21.339Z [INFO] #12 1.140   Downloading uvicorn-0.35.0-py3-none-any.whl.metadata (6.5 kB)
+2025-07-13T00:48:21.342Z [INFO] #12 1.205 Collecting starlette<0.48.0,>=0.40.0 (from fastapi->-r requirements.txt (line 2))
+2025-07-13T00:48:21.344Z [INFO] #12 1.230   Downloading starlette-0.47.1-py3-none-any.whl.metadata (6.2 kB)
+2025-07-13T00:48:21.505Z [INFO] #12 1.395 Collecting pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4 (from fastapi->-r requirements.txt (line 2))
+2025-07-13T00:48:21.626Z [INFO] #12 1.420   Downloading pydantic-2.11.7-py3-none-any.whl.metadata (67 kB)
+2025-07-13T00:48:21.629Z [INFO] #12 1.445      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 68.0/68.0 kB 2.8 MB/s eta 0:00:00
+2025-07-13T00:48:21.631Z [INFO] #12 1.492 Collecting typing-extensions>=4.8.0 (from fastapi->-r requirements.txt (line 2))
+2025-07-13T00:48:21.633Z [INFO] #12 1.517   Downloading typing_extensions-4.14.1-py3-none-any.whl.metadata (3.0 kB)
+2025-07-13T00:48:21.730Z [INFO] #12 1.562 Collecting click>=7.0 (from uvicorn[standard]->-r requirements.txt (line 3))
+2025-07-13T00:48:21.732Z [INFO] #12 1.587   Downloading click-8.2.1-py3-none-any.whl.metadata (2.5 kB)
+2025-07-13T00:48:21.735Z [INFO] #12 1.620 Collecting h11>=0.8 (from uvicorn[standard]->-r requirements.txt (line 3))
+2025-07-13T00:48:21.841Z [INFO] #12 1.646   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+2025-07-13T00:48:21.844Z [INFO] #12 1.707 Collecting httptools>=0.6.3 (from uvicorn[standard]->-r requirements.txt (line 3))
+2025-07-13T00:48:21.846Z [INFO] #12 1.732   Downloading httptools-0.6.4-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.6 kB)
+2025-07-13T00:48:21.963Z [INFO] #12 1.765 Collecting python-dotenv>=0.13 (from uvicorn[standard]->-r requirements.txt (line 3))
+2025-07-13T00:48:21.968Z [INFO] #12 1.790   Downloading python_dotenv-1.1.1-py3-none-any.whl.metadata (24 kB)
+2025-07-13T00:48:21.970Z [INFO] #12 1.791 Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.10/dist-packages (from uvicorn[standard]->-r requirements.txt (line 3)) (6.0.1)
+2025-07-13T00:48:21.972Z [INFO] #12 1.854 Collecting uvloop>=0.15.1 (from uvicorn[standard]->-r requirements.txt (line 3))
+2025-07-13T00:48:22.087Z [INFO] #12 1.879   Downloading uvloop-0.21.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+2025-07-13T00:48:22.090Z [INFO] #12 1.978 Collecting watchfiles>=0.13 (from uvicorn[standard]->-r requirements.txt (line 3))
+2025-07-13T00:48:22.202Z [INFO] #12 2.004   Downloading watchfiles-1.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+2025-07-13T00:48:22.205Z [INFO] #12 2.093 Collecting websockets>=10.4 (from uvicorn[standard]->-r requirements.txt (line 3))
+2025-07-13T00:48:22.311Z [INFO] #12 2.119   Downloading websockets-15.0.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+2025-07-13T00:48:22.314Z [INFO] #12 2.202 Collecting ctranslate2<4.5.0 (from whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:22.425Z [INFO] #12 2.228   Downloading ctranslate2-4.4.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
+2025-07-13T00:48:22.428Z [INFO] #12 2.258 Collecting faster-whisper>=1.1.1 (from whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:22.430Z [INFO] #12 2.284   Downloading faster_whisper-1.1.1-py3-none-any.whl.metadata (16 kB)
+2025-07-13T00:48:22.432Z [INFO] #12 2.316 Collecting nltk>=3.9.1 (from whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:22.602Z [INFO] #12 2.341   Downloading nltk-3.9.1-py3-none-any.whl.metadata (2.9 kB)
+2025-07-13T00:48:22.649Z [INFO] #12 2.540 Collecting numpy>=2.0.2 (from whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:22.764Z [INFO] #12 2.565   Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+2025-07-13T00:48:22.766Z [INFO] #12 2.571      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 11.7 MB/s eta 0:00:00
+2025-07-13T00:48:22.768Z [INFO] #12 2.629 Collecting onnxruntime>=1.19 (from whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:22.770Z [INFO] #12 2.655   Downloading onnxruntime-1.22.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (4.6 kB)
+2025-07-13T00:48:22.866Z [INFO] #12 2.757 Collecting pandas>=2.2.3 (from whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:23.009Z [INFO] #12 2.783   Downloading pandas-2.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (91 kB)
+2025-07-13T00:48:23.012Z [INFO] #12 2.791      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.2/91.2 kB 13.6 MB/s eta 0:00:00
+2025-07-13T00:48:23.014Z [INFO] #12 2.821 Collecting pyannote-audio>=3.3.2 (from whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:23.016Z [INFO] #12 2.848   Downloading pyannote.audio-3.3.2-py2.py3-none-any.whl.metadata (11 kB)
+2025-07-13T00:48:23.018Z [INFO] #12 2.900 Collecting torch>=2.5.1 (from whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:23.112Z [INFO] #12 2.925   Downloading torch-2.7.1-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (29 kB)
+2025-07-13T00:48:23.115Z [INFO] #12 2.978 Collecting torchaudio>=2.5.1 (from whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:23.117Z [INFO] #12 3.003   Downloading torchaudio-2.7.1-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2025-07-13T00:48:23.233Z [INFO] #12 3.061 Collecting transformers>=4.48.0 (from whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:23.236Z [INFO] #12 3.086   Downloading transformers-4.53.2-py3-none-any.whl.metadata (40 kB)
+2025-07-13T00:48:23.238Z [INFO] #12 3.088      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.9/40.9 kB 43.4 MB/s eta 0:00:00
+2025-07-13T00:48:23.240Z [INFO] #12 3.123 Collecting future (from ffmpeg-python->-r requirements.txt (line 10))
+2025-07-13T00:48:23.334Z [INFO] #12 3.148   Downloading future-1.0.0-py3-none-any.whl.metadata (4.0 kB)
+2025-07-13T00:48:23.337Z [INFO] #12 3.152 Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests->-r requirements.txt (line 13)) (2.1.1)
+2025-07-13T00:48:23.339Z [INFO] #12 3.153 Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests->-r requirements.txt (line 13)) (3.4)
+2025-07-13T00:48:23.341Z [INFO] #12 3.153 Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests->-r requirements.txt (line 13)) (1.26.13)
+2025-07-13T00:48:23.343Z [INFO] #12 3.154 Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests->-r requirements.txt (line 13)) (2022.12.7)
+2025-07-13T00:48:23.345Z [INFO] #12 3.158 Requirement already satisfied: setuptools in /usr/local/lib/python3.10/dist-packages (from ctranslate2<4.5.0->whisperx->-r requirements.txt (line 7)) (68.2.2)
+2025-07-13T00:48:23.346Z [INFO] #12 3.224 Collecting huggingface-hub>=0.13 (from faster-whisper>=1.1.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:23.509Z [INFO] #12 3.249   Downloading huggingface_hub-0.33.4-py3-none-any.whl.metadata (14 kB)
+2025-07-13T00:48:23.532Z [INFO] #12 3.422 Collecting tokenizers<1,>=0.13 (from faster-whisper>=1.1.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:23.640Z [INFO] #12 3.447   Downloading tokenizers-0.21.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+2025-07-13T00:48:23.643Z [INFO] #12 3.506 Collecting av>=11 (from faster-whisper>=1.1.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:23.645Z [INFO] #12 3.531   Downloading av-15.0.0-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (4.6 kB)
+2025-07-13T00:48:23.772Z [INFO] #12 3.585 Collecting tqdm (from faster-whisper>=1.1.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:23.774Z [INFO] #12 3.609   Downloading tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
+2025-07-13T00:48:23.776Z [INFO] #12 3.612      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.7/57.7 kB 27.7 MB/s eta 0:00:00
+2025-07-13T00:48:23.778Z [INFO] #12 3.663 Collecting joblib (from nltk>=3.9.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:23.947Z [INFO] #12 3.687   Downloading joblib-1.5.1-py3-none-any.whl.metadata (5.6 kB)
+2025-07-13T00:48:24.091Z [INFO] #12 3.982 Collecting regex>=2021.8.3 (from nltk>=3.9.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:24.215Z [INFO] #12 4.008   Downloading regex-2024.11.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (40 kB)
+2025-07-13T00:48:24.218Z [INFO] #12 4.011      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.5/40.5 kB 19.5 MB/s eta 0:00:00
+2025-07-13T00:48:24.219Z [INFO] #12 4.051 Collecting coloredlogs (from onnxruntime>=1.19->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:24.221Z [INFO] #12 4.075   Downloading coloredlogs-15.0.1-py2.py3-none-any.whl.metadata (12 kB)
+2025-07-13T00:48:24.223Z [INFO] #12 4.106 Collecting flatbuffers (from onnxruntime>=1.19->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:24.384Z [INFO] #12 4.130   Downloading flatbuffers-25.2.10-py2.py3-none-any.whl.metadata (875 bytes)
+2025-07-13T00:48:24.386Z [INFO] #12 4.136 Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from onnxruntime>=1.19->whisperx->-r requirements.txt (line 7)) (23.2)
+2025-07-13T00:48:24.388Z [INFO] #12 4.274 Collecting protobuf (from onnxruntime>=1.19->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:24.514Z [INFO] #12 4.299   Downloading protobuf-6.31.1-cp39-abi3-manylinux2014_x86_64.whl.metadata (593 bytes)
+2025-07-13T00:48:24.517Z [INFO] #12 4.300 Requirement already satisfied: sympy in /usr/local/lib/python3.10/dist-packages (from onnxruntime>=1.19->whisperx->-r requirements.txt (line 7)) (1.12)
+2025-07-13T00:48:24.520Z [INFO] #12 4.354 Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.10/dist-packages (from pandas>=2.2.3->whisperx->-r requirements.txt (line 7)) (2.8.2)
+2025-07-13T00:48:24.521Z [INFO] #12 4.405 Collecting pytz>=2020.1 (from pandas>=2.2.3->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:24.638Z [INFO] #12 4.430   Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+2025-07-13T00:48:24.641Z [INFO] #12 4.462 Collecting tzdata>=2022.7 (from pandas>=2.2.3->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:24.643Z [INFO] #12 4.487   Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+2025-07-13T00:48:24.645Z [INFO] #12 4.529 Collecting asteroid-filterbanks>=0.4 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:24.839Z [INFO] #12 4.554   Downloading asteroid_filterbanks-0.4.0-py3-none-any.whl.metadata (3.3 kB)
+2025-07-13T00:48:24.841Z [INFO] #12 4.583 Collecting einops>=0.6.0 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:24.843Z [INFO] #12 4.609   Downloading einops-0.8.1-py3-none-any.whl.metadata (13 kB)
+2025-07-13T00:48:24.845Z [INFO] #12 4.729 Collecting lightning>=2.0.1 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:24.941Z [INFO] #12 4.755   Downloading lightning-2.5.2-py3-none-any.whl.metadata (38 kB)
+2025-07-13T00:48:24.944Z [INFO] #12 4.806 Collecting omegaconf<3.0,>=2.1 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:24.946Z [INFO] #12 4.832   Downloading omegaconf-2.3.0-py3-none-any.whl.metadata (3.9 kB)
+2025-07-13T00:48:25.062Z [INFO] #12 4.868 Collecting pyannote.core>=5.0.0 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:25.065Z [INFO] #12 4.894   Downloading pyannote.core-5.0.0-py3-none-any.whl.metadata (1.4 kB)
+2025-07-13T00:48:25.067Z [INFO] #12 4.927 Collecting pyannote.database>=5.0.1 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:25.069Z [INFO] #12 4.953   Downloading pyannote.database-5.1.3-py3-none-any.whl.metadata (1.1 kB)
+2025-07-13T00:48:25.166Z [INFO] #12 4.993 Collecting pyannote.metrics>=3.2 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:25.168Z [INFO] #12 5.020   Downloading pyannote.metrics-3.2.1-py3-none-any.whl.metadata (1.3 kB)
+2025-07-13T00:48:25.170Z [INFO] #12 5.057 Collecting pyannote.pipeline>=3.0.1 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:25.275Z [INFO] #12 5.083   Downloading pyannote.pipeline-3.0.1-py3-none-any.whl.metadata (897 bytes)
+2025-07-13T00:48:25.278Z [INFO] #12 5.165 Collecting pytorch-metric-learning>=2.1.0 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:25.390Z [INFO] #12 5.191   Downloading pytorch_metric_learning-2.8.1-py3-none-any.whl.metadata (18 kB)
+2025-07-13T00:48:25.393Z [INFO] #12 5.257 Collecting rich>=12.0.0 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:25.395Z [INFO] #12 5.281   Downloading rich-14.0.0-py3-none-any.whl.metadata (18 kB)
+2025-07-13T00:48:25.506Z [INFO] #12 5.315 Collecting semver>=3.0.0 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:25.509Z [INFO] #12 5.341   Downloading semver-3.0.4-py3-none-any.whl.metadata (6.8 kB)
+2025-07-13T00:48:25.511Z [INFO] #12 5.372 Collecting soundfile>=0.12.1 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:25.513Z [INFO] #12 5.397   Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl.metadata (16 kB)
+2025-07-13T00:48:25.611Z [INFO] #12 5.434 Collecting speechbrain>=1.0.0 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:25.614Z [INFO] #12 5.460   Downloading speechbrain-1.0.3-py3-none-any.whl.metadata (24 kB)
+2025-07-13T00:48:25.616Z [INFO] #12 5.502 Collecting tensorboardX>=2.6 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:25.774Z [INFO] #12 5.529   Downloading tensorboardx-2.6.4-py3-none-any.whl.metadata (6.2 kB)
+2025-07-13T00:48:25.777Z [INFO] #12 5.573 Collecting torch-audiomentations>=0.11.0 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:25.779Z [INFO] #12 5.600   Downloading torch_audiomentations-0.12.0-py3-none-any.whl.metadata (15 kB)
+2025-07-13T00:48:25.781Z [INFO] #12 5.665 Collecting torchmetrics>=0.11.0 (from pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:26.023Z [INFO] #12 5.691   Downloading torchmetrics-1.7.4-py3-none-any.whl.metadata (21 kB)
+2025-07-13T00:48:26.026Z [INFO] #12 5.737 Collecting annotated-types>=0.6.0 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi->-r requirements.txt (line 2))
+2025-07-13T00:48:26.027Z [INFO] #12 5.762   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+2025-07-13T00:48:26.441Z [INFO] #12 6.331 Collecting pydantic-core==2.33.2 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi->-r requirements.txt (line 2))
+2025-07-13T00:48:26.565Z [INFO] #12 6.356   Downloading pydantic_core-2.33.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+2025-07-13T00:48:26.568Z [INFO] #12 6.387 Collecting typing-inspection>=0.4.0 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi->-r requirements.txt (line 2))
+2025-07-13T00:48:26.570Z [INFO] #12 6.412   Downloading typing_inspection-0.4.1-py3-none-any.whl.metadata (2.6 kB)
+2025-07-13T00:48:26.572Z [INFO] #12 6.429 Requirement already satisfied: anyio<5,>=3.6.2 in /usr/local/lib/python3.10/dist-packages (from starlette<0.48.0,>=0.40.0->fastapi->-r requirements.txt (line 2)) (4.0.0)
+2025-07-13T00:48:26.574Z [INFO] #12 6.456 Requirement already satisfied: filelock in /usr/local/lib/python3.10/dist-packages (from torch>=2.5.1->whisperx->-r requirements.txt (line 7)) (3.9.0)
+2025-07-13T00:48:26.682Z [INFO] #12 6.492 Collecting sympy (from onnxruntime>=1.19->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:26.685Z [INFO] #12 6.516   Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+2025-07-13T00:48:26.686Z [INFO] #12 6.517 Requirement already satisfied: networkx in /usr/local/lib/python3.10/dist-packages (from torch>=2.5.1->whisperx->-r requirements.txt (line 7)) (3.0)
+2025-07-13T00:48:26.688Z [INFO] #12 6.517 Requirement already satisfied: jinja2 in /usr/local/lib/python3.10/dist-packages (from torch>=2.5.1->whisperx->-r requirements.txt (line 7)) (3.1.2)
+2025-07-13T00:48:26.690Z [INFO] #12 6.518 Requirement already satisfied: fsspec in /usr/local/lib/python3.10/dist-packages (from torch>=2.5.1->whisperx->-r requirements.txt (line 7)) (2023.4.0)
+2025-07-13T00:48:26.691Z [INFO] #12 6.548 Collecting nvidia-cuda-nvrtc-cu12==12.6.77 (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:26.693Z [INFO] #12 6.573   Downloading nvidia_cuda_nvrtc_cu12-12.6.77-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+2025-07-13T00:48:26.803Z [INFO] #12 6.604 Collecting nvidia-cuda-runtime-cu12==12.6.77 (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:26.805Z [INFO] #12 6.629   Downloading nvidia_cuda_runtime_cu12-12.6.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.5 kB)
+2025-07-13T00:48:26.807Z [INFO] #12 6.668 Collecting nvidia-cuda-cupti-cu12==12.6.80 (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:26.809Z [INFO] #12 6.693   Downloading nvidia_cuda_cupti_cu12-12.6.80-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.6 kB)
+2025-07-13T00:48:26.913Z [INFO] #12 6.734 Collecting nvidia-cudnn-cu12==9.5.1.17 (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:26.916Z [INFO] #12 6.759   Downloading nvidia_cudnn_cu12-9.5.1.17-py3-none-manylinux_2_28_x86_64.whl.metadata (1.6 kB)
+2025-07-13T00:48:26.918Z [INFO] #12 6.804 Collecting nvidia-cublas-cu12==12.6.4.1 (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:27.054Z [INFO] #12 6.830   Downloading nvidia_cublas_cu12-12.6.4.1-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.5 kB)
+2025-07-13T00:48:27.057Z [INFO] #12 6.874 Collecting nvidia-cufft-cu12==11.3.0.4 (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:27.059Z [INFO] #12 6.901   Downloading nvidia_cufft_cu12-11.3.0.4-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.5 kB)
+2025-07-13T00:48:27.061Z [INFO] #12 6.945 Collecting nvidia-curand-cu12==10.3.7.77 (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:27.196Z [INFO] #12 6.972   Downloading nvidia_curand_cu12-10.3.7.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.5 kB)
+2025-07-13T00:48:27.198Z [INFO] #12 7.016 Collecting nvidia-cusolver-cu12==11.7.1.2 (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:27.200Z [INFO] #12 7.042   Downloading nvidia_cusolver_cu12-11.7.1.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.6 kB)
+2025-07-13T00:48:27.203Z [INFO] #12 7.086 Collecting nvidia-cusparse-cu12==12.5.4.2 (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:27.329Z [INFO] #12 7.113   Downloading nvidia_cusparse_cu12-12.5.4.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.6 kB)
+2025-07-13T00:48:27.331Z [INFO] #12 7.150 Collecting nvidia-cusparselt-cu12==0.6.3 (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:27.334Z [INFO] #12 7.177   Downloading nvidia_cusparselt_cu12-0.6.3-py3-none-manylinux2014_x86_64.whl.metadata (6.8 kB)
+2025-07-13T00:48:27.336Z [INFO] #12 7.219 Collecting nvidia-nccl-cu12==2.26.2 (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:27.471Z [INFO] #12 7.246   Downloading nvidia_nccl_cu12-2.26.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.0 kB)
+2025-07-13T00:48:27.473Z [INFO] #12 7.291 Collecting nvidia-nvtx-cu12==12.6.77 (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:27.475Z [INFO] #12 7.317   Downloading nvidia_nvtx_cu12-12.6.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.6 kB)
+2025-07-13T00:48:27.477Z [INFO] #12 7.362 Collecting nvidia-nvjitlink-cu12==12.6.85 (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:27.605Z [INFO] #12 7.388   Downloading nvidia_nvjitlink_cu12-12.6.85-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.5 kB)
+2025-07-13T00:48:27.608Z [INFO] #12 7.425 Collecting nvidia-cufile-cu12==1.11.1.6 (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:27.609Z [INFO] #12 7.452   Downloading nvidia_cufile_cu12-1.11.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.5 kB)
+2025-07-13T00:48:27.611Z [INFO] #12 7.496 Collecting triton==3.3.1 (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:27.783Z [INFO] #12 7.523   Downloading triton-3.3.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.5 kB)
+2025-07-13T00:48:28.087Z [INFO] #12 7.977 Collecting safetensors>=0.4.3 (from transformers>=4.48.0->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:28.294Z [INFO] #12 8.002   Downloading safetensors-0.5.3-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
+2025-07-13T00:48:28.297Z [INFO] #12 8.067 Requirement already satisfied: sniffio>=1.1 in /usr/local/lib/python3.10/dist-packages (from anyio<5,>=3.6.2->starlette<0.48.0,>=0.40.0->fastapi->-r requirements.txt (line 2)) (1.3.0)
+2025-07-13T00:48:28.299Z [INFO] #12 8.068 Requirement already satisfied: exceptiongroup>=1.0.2 in /usr/local/lib/python3.10/dist-packages (from anyio<5,>=3.6.2->starlette<0.48.0,>=0.40.0->fastapi->-r requirements.txt (line 2)) (1.1.3)
+2025-07-13T00:48:28.301Z [INFO] #12 8.185 Collecting fsspec (from torch>=2.5.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:28.398Z [INFO] #12 8.210   Downloading fsspec-2025.5.1-py3-none-any.whl.metadata (11 kB)
+2025-07-13T00:48:28.401Z [INFO] #12 8.265 Collecting hf-xet<2.0.0,>=1.1.2 (from huggingface-hub>=0.13->faster-whisper>=1.1.1->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:28.404Z [INFO] #12 8.289   Downloading hf_xet-1.1.5-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (879 bytes)
+2025-07-13T00:48:28.600Z [INFO] #12 8.490 Collecting lightning-utilities<2.0,>=0.10.0 (from lightning>=2.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:28.776Z [INFO] #12 8.516   Downloading lightning_utilities-0.14.3-py3-none-any.whl.metadata (5.6 kB)
+2025-07-13T00:48:28.812Z [INFO] #12 8.703 Collecting pytorch-lightning (from lightning>=2.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:28.924Z [INFO] #12 8.728   Downloading pytorch_lightning-2.5.2-py3-none-any.whl.metadata (21 kB)
+2025-07-13T00:48:28.926Z [INFO] #12 8.766 Collecting antlr4-python3-runtime==4.9.* (from omegaconf<3.0,>=2.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:28.928Z [INFO] #12 8.790   Downloading antlr4-python3-runtime-4.9.3.tar.gz (117 kB)
+2025-07-13T00:48:28.930Z [INFO] #12 8.798      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.0/117.0 kB 19.2 MB/s eta 0:00:00
+2025-07-13T00:48:28.932Z [INFO] #12 8.814   Preparing metadata (setup.py): started
+2025-07-13T00:48:29.048Z [INFO] #12 8.939   Preparing metadata (setup.py): finished with status 'done'
+2025-07-13T00:48:29.150Z [INFO] #12 9.016 Collecting sortedcontainers>=2.0.4 (from pyannote.core>=5.0.0->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:29.153Z [INFO] #12 9.041   Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl.metadata (10 kB)
+2025-07-13T00:48:29.282Z [INFO] #12 9.173 Collecting scipy>=1.1 (from pyannote.core>=5.0.0->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:29.397Z [INFO] #12 9.200   Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+2025-07-13T00:48:29.400Z [INFO] #12 9.203      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 31.4 MB/s eta 0:00:00
+2025-07-13T00:48:29.403Z [INFO] #12 9.263 Collecting typer>=0.12.1 (from pyannote.database>=5.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:29.405Z [INFO] #12 9.288   Downloading typer-0.16.0-py3-none-any.whl.metadata (15 kB)
+2025-07-13T00:48:29.515Z [INFO] #12 9.380 Collecting scikit-learn>=0.17.1 (from pyannote.metrics>=3.2->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:29.518Z [INFO] #12 9.406   Downloading scikit_learn-1.7.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (17 kB)
+2025-07-13T00:48:29.695Z [INFO] #12 9.434 Collecting docopt>=0.6.2 (from pyannote.metrics>=3.2->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:29.698Z [INFO] #12 9.459   Downloading docopt-0.6.2.tar.gz (25 kB)
+2025-07-13T00:48:29.700Z [INFO] #12 9.465   Preparing metadata (setup.py): started
+2025-07-13T00:48:29.702Z [INFO] #12 9.586   Preparing metadata (setup.py): finished with status 'done'
+2025-07-13T00:48:29.904Z [INFO] #12 9.629 Collecting tabulate>=0.7.7 (from pyannote.metrics>=3.2->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:29.907Z [INFO] #12 9.655   Downloading tabulate-0.9.0-py3-none-any.whl.metadata (34 kB)
+2025-07-13T00:48:29.909Z [INFO] #12 9.795 Collecting matplotlib>=2.0.0 (from pyannote.metrics>=3.2->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:30.008Z [INFO] #12 9.820   Downloading matplotlib-3.10.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+2025-07-13T00:48:30.011Z [INFO] #12 9.873 Collecting optuna>=3.1 (from pyannote.pipeline>=3.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:30.013Z [INFO] #12 9.899   Downloading optuna-4.4.0-py3-none-any.whl.metadata (17 kB)
+2025-07-13T00:48:30.128Z [INFO] #12 9.929 Requirement already satisfied: six>=1.5 in /usr/lib/python3/dist-packages (from python-dateutil>=2.8.2->pandas>=2.2.3->whisperx->-r requirements.txt (line 7)) (1.16.0)
+2025-07-13T00:48:30.131Z [INFO] #12 9.994 Collecting markdown-it-py>=2.2.0 (from rich>=12.0.0->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:30.133Z [INFO] #12 10.02   Downloading markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
+2025-07-13T00:48:30.230Z [INFO] #12 10.02 Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /usr/local/lib/python3.10/dist-packages (from rich>=12.0.0->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7)) (2.16.1)
+2025-07-13T00:48:30.233Z [INFO] #12 10.09 Requirement already satisfied: cffi>=1.0 in /usr/local/lib/python3.10/dist-packages (from soundfile>=0.12.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7)) (1.16.0)
+2025-07-13T00:48:30.235Z [INFO] #12 10.12 Collecting hyperpyyaml (from speechbrain>=1.0.0->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:30.335Z [INFO] #12 10.15   Downloading HyperPyYAML-1.2.2-py3-none-any.whl.metadata (7.6 kB)
+2025-07-13T00:48:30.337Z [INFO] #12 10.20 Collecting sentencepiece (from speechbrain>=1.0.0->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:30.339Z [INFO] #12 10.23   Downloading sentencepiece-0.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.7 kB)
+2025-07-13T00:48:30.458Z [INFO] #12 10.24 Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from sympy->onnxruntime>=1.19->whisperx->-r requirements.txt (line 7)) (1.3.0)
+2025-07-13T00:48:30.461Z [INFO] #12 10.32 Collecting julius<0.3,>=0.2.3 (from torch-audiomentations>=0.11.0->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:30.463Z [INFO] #12 10.35   Downloading julius-0.2.7.tar.gz (59 kB)
+2025-07-13T00:48:30.591Z [INFO] #12 10.35      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.6/59.6 kB 36.8 MB/s eta 0:00:00
+2025-07-13T00:48:30.594Z [INFO] #12 10.36   Preparing metadata (setup.py): started
+2025-07-13T00:48:30.595Z [INFO] #12 10.48   Preparing metadata (setup.py): finished with status 'done'
+2025-07-13T00:48:30.823Z [INFO] #12 10.54 Collecting torch-pitch-shift>=1.2.2 (from torch-audiomentations>=0.11.0->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:30.825Z [INFO] #12 10.56   Downloading torch_pitch_shift-1.2.5-py3-none-any.whl.metadata (2.5 kB)
+2025-07-13T00:48:30.855Z [INFO] #12 10.75 Collecting humanfriendly>=9.1 (from coloredlogs->onnxruntime>=1.19->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:31.076Z [INFO] #12 10.77   Downloading humanfriendly-10.0-py2.py3-none-any.whl.metadata (9.2 kB)
+2025-07-13T00:48:31.078Z [INFO] #12 10.79 Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2->torch>=2.5.1->whisperx->-r requirements.txt (line 7)) (2.1.2)
+2025-07-13T00:48:31.080Z [INFO] #12 10.82 Requirement already satisfied: pycparser in /usr/local/lib/python3.10/dist-packages (from cffi>=1.0->soundfile>=0.12.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7)) (2.21)
+2025-07-13T00:48:31.469Z [INFO] #12 11.36 Collecting aiohttp!=4.0.0a0,!=4.0.0a1 (from fsspec[http]<2027.0,>=2022.5.0->lightning>=2.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:31.579Z [INFO] #12 11.38   Downloading aiohttp-3.12.14-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.6 kB)
+2025-07-13T00:48:31.582Z [INFO] #12 11.47 Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=12.0.0->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:31.692Z [INFO] #12 11.49   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+2025-07-13T00:48:31.694Z [INFO] #12 11.58 Collecting contourpy>=1.0.1 (from matplotlib>=2.0.0->pyannote.metrics>=3.2->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:31.897Z [INFO] #12 11.61   Downloading contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.5 kB)
+2025-07-13T00:48:31.900Z [INFO] #12 11.63 Collecting cycler>=0.10 (from matplotlib>=2.0.0->pyannote.metrics>=3.2->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:31.902Z [INFO] #12 11.66   Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+2025-07-13T00:48:31.904Z [INFO] #12 11.79 Collecting fonttools>=4.22.0 (from matplotlib>=2.0.0->pyannote.metrics>=3.2->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:32.011Z [INFO] #12 11.81   Downloading fonttools-4.58.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (106 kB)
+2025-07-13T00:48:32.014Z [INFO] #12 11.82      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 106.9/106.9 kB 26.6 MB/s eta 0:00:00
+2025-07-13T00:48:32.016Z [INFO] #12 11.88 Collecting kiwisolver>=1.3.1 (from matplotlib>=2.0.0->pyannote.metrics>=3.2->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:32.018Z [INFO] #12 11.90   Downloading kiwisolver-1.4.8-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (6.2 kB)
+2025-07-13T00:48:32.135Z [INFO] #12 11.91 Requirement already satisfied: pillow>=8 in /usr/local/lib/python3.10/dist-packages (from matplotlib>=2.0.0->pyannote.metrics>=3.2->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7)) (9.3.0)
+2025-07-13T00:48:32.137Z [INFO] #12 11.91 Requirement already satisfied: pyparsing>=2.3.1 in /usr/lib/python3/dist-packages (from matplotlib>=2.0.0->pyannote.metrics>=3.2->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7)) (2.4.7)
+2025-07-13T00:48:32.139Z [INFO] #12 12.00 Collecting alembic>=1.5.0 (from optuna>=3.1->pyannote.pipeline>=3.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:32.141Z [INFO] #12 12.03   Downloading alembic-1.16.4-py3-none-any.whl.metadata (7.3 kB)
+2025-07-13T00:48:32.346Z [INFO] #12 12.06 Collecting colorlog (from optuna>=3.1->pyannote.pipeline>=3.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:32.348Z [INFO] #12 12.09   Downloading colorlog-6.9.0-py3-none-any.whl.metadata (10 kB)
+2025-07-13T00:48:32.433Z [INFO] #12 12.32 Collecting sqlalchemy>=1.4.2 (from optuna>=3.1->pyannote.pipeline>=3.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:32.544Z [INFO] #12 12.35   Downloading sqlalchemy-2.0.41-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.6 kB)
+2025-07-13T00:48:32.546Z [INFO] #12 12.43 Collecting threadpoolctl>=3.1.0 (from scikit-learn>=0.17.1->pyannote.metrics>=3.2->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:32.679Z [INFO] #12 12.46   Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+2025-07-13T00:48:32.682Z [INFO] #12 12.57 Collecting primePy>=1.3 (from torch-pitch-shift>=1.2.2->torch-audiomentations>=0.11.0->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:32.928Z [INFO] #12 12.60   Downloading primePy-1.3-py3-none-any.whl.metadata (4.8 kB)
+2025-07-13T00:48:32.931Z [INFO] #12 12.64 Collecting shellingham>=1.3.0 (from typer>=0.12.1->pyannote.database>=5.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:32.933Z [INFO] #12 12.67   Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+2025-07-13T00:48:33.091Z [INFO] #12 12.98 Collecting ruamel.yaml>=0.17.28 (from hyperpyyaml->speechbrain>=1.0.0->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:33.221Z [INFO] #12 13.01   Downloading ruamel.yaml-0.18.14-py3-none-any.whl.metadata (24 kB)
+2025-07-13T00:48:33.224Z [INFO] #12 13.11 Collecting aiohappyeyeballs>=2.5.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<2027.0,>=2022.5.0->lightning>=2.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:33.328Z [INFO] #12 13.14   Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl.metadata (5.9 kB)
+2025-07-13T00:48:33.331Z [INFO] #12 13.16 Collecting aiosignal>=1.4.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<2027.0,>=2022.5.0->lightning>=2.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:33.333Z [INFO] #12 13.19   Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+2025-07-13T00:48:33.336Z [INFO] #12 13.22 Collecting async-timeout<6.0,>=4.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<2027.0,>=2022.5.0->lightning>=2.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:33.445Z [INFO] #12 13.24   Downloading async_timeout-5.0.1-py3-none-any.whl.metadata (5.1 kB)
+2025-07-13T00:48:33.448Z [INFO] #12 13.24 Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<2027.0,>=2022.5.0->lightning>=2.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7)) (23.1.0)
+2025-07-13T00:48:33.450Z [INFO] #12 13.31 Collecting frozenlist>=1.1.1 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<2027.0,>=2022.5.0->lightning>=2.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:33.452Z [INFO] #12 13.34   Downloading frozenlist-1.7.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+2025-07-13T00:48:33.635Z [INFO] #12 13.53 Collecting multidict<7.0,>=4.5 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<2027.0,>=2022.5.0->lightning>=2.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:33.736Z [INFO] #12 13.55   Downloading multidict-6.6.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+2025-07-13T00:48:33.739Z [INFO] #12 13.60 Collecting propcache>=0.2.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<2027.0,>=2022.5.0->lightning>=2.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:33.741Z [INFO] #12 13.63   Downloading propcache-0.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
+2025-07-13T00:48:33.942Z [INFO] #12 13.83 Collecting yarl<2.0,>=1.17.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<2027.0,>=2022.5.0->lightning>=2.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:34.059Z [INFO] #12 13.86   Downloading yarl-1.20.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (73 kB)
+2025-07-13T00:48:34.062Z [INFO] #12 13.86      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.9/73.9 kB 26.7 MB/s eta 0:00:00
+2025-07-13T00:48:34.064Z [INFO] #12 13.93 Collecting Mako (from alembic>=1.5.0->optuna>=3.1->pyannote.pipeline>=3.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:34.066Z [INFO] #12 13.95   Downloading mako-1.3.10-py3-none-any.whl.metadata (2.9 kB)
+2025-07-13T00:48:34.211Z [INFO] #12 13.95 Requirement already satisfied: tomli in /usr/local/lib/python3.10/dist-packages (from alembic>=1.5.0->optuna>=3.1->pyannote.pipeline>=3.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7)) (2.0.1)
+2025-07-13T00:48:34.228Z [INFO] #12 14.12 Collecting ruamel.yaml.clib>=0.2.7 (from ruamel.yaml>=0.17.28->hyperpyyaml->speechbrain>=1.0.0->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:34.407Z [INFO] #12 14.15   Downloading ruamel.yaml.clib-0.2.12-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.7 kB)
+2025-07-13T00:48:34.414Z [INFO] #12 14.31 Collecting greenlet>=1 (from sqlalchemy>=1.4.2->optuna>=3.1->pyannote.pipeline>=3.0.1->pyannote-audio>=3.3.2->whisperx->-r requirements.txt (line 7))
+2025-07-13T00:48:34.590Z [INFO] #12 14.33   Downloading greenlet-3.2.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (4.1 kB)
+2025-07-13T00:48:34.687Z [INFO] #12 14.58 Downloading fastapi-0.116.1-py3-none-any.whl (95 kB)
+2025-07-13T00:48:34.895Z [INFO] #12 14.58    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 95.6/95.6 kB 32.8 MB/s eta 0:00:00
+2025-07-13T00:48:34.897Z [INFO] #12 14.61 Downloading python_multipart-0.0.20-py3-none-any.whl (24 kB)
+2025-07-13T00:48:34.899Z [INFO] #12 14.64 Downloading whisperx-3.4.2-py3-none-any.whl (16.5 MB)
+2025-07-13T00:48:34.919Z [INFO] #12 14.81    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.5/16.5 MB 155.6 MB/s eta 0:00:00
+2025-07-13T00:48:35.152Z [INFO] #12 14.84 Downloading ffmpeg_python-0.2.0-py3-none-any.whl (25 kB)
+2025-07-13T00:48:35.154Z [INFO] #12 14.86 Downloading click-8.2.1-py3-none-any.whl (102 kB)
+2025-07-13T00:48:35.157Z [INFO] #12 14.87    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.2/102.2 kB 228.9 MB/s eta 0:00:00
+2025-07-13T00:48:35.158Z [INFO] #12 14.89 Downloading ctranslate2-4.4.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.2 MB)
+2025-07-13T00:48:35.222Z [INFO] #12 15.11    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.2/37.2 MB 167.2 MB/s eta 0:00:00
+2025-07-13T00:48:35.332Z [INFO] #12 15.14 Downloading faster_whisper-1.1.1-py3-none-any.whl (1.1 MB)
+2025-07-13T00:48:35.335Z [INFO] #12 15.14    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 463.0 MB/s eta 0:00:00
+2025-07-13T00:48:35.337Z [INFO] #12 15.17 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+2025-07-13T00:48:35.339Z [INFO] #12 15.19 Downloading httptools-0.6.4-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (442 kB)
+2025-07-13T00:48:35.340Z [INFO] #12 15.20    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 442.1/442.1 kB 256.5 MB/s eta 0:00:00
+2025-07-13T00:48:35.342Z [INFO] #12 15.22 Downloading nltk-3.9.1-py3-none-any.whl (1.5 MB)
+2025-07-13T00:48:35.480Z [INFO] #12 15.23    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 211.2 MB/s eta 0:00:00
+2025-07-13T00:48:35.483Z [INFO] #12 15.26 Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)
+2025-07-13T00:48:35.607Z [INFO] #12 15.37    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.8/16.8 MB 154.5 MB/s eta 0:00:00
+2025-07-13T00:48:35.610Z [INFO] #12 15.40 Downloading onnxruntime-1.22.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.5 MB)
+2025-07-13T00:48:35.710Z [INFO] #12 15.50    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.5/16.5 MB 163.2 MB/s eta 0:00:00
+2025-07-13T00:48:35.712Z [INFO] #12 15.52 Downloading pandas-2.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.3 MB)
+2025-07-13T00:48:35.812Z [INFO] #12 15.60    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 156.9 MB/s eta 0:00:00
+2025-07-13T00:48:35.814Z [INFO] #12 15.63 Downloading pyannote.audio-3.3.2-py2.py3-none-any.whl (898 kB)
+2025-07-13T00:48:35.817Z [INFO] #12 15.63    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 898.7/898.7 kB 269.2 MB/s eta 0:00:00
+2025-07-13T00:48:35.819Z [INFO] #12 15.66 Downloading pydantic-2.11.7-py3-none-any.whl (444 kB)
+2025-07-13T00:48:35.820Z [INFO] #12 15.66    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 444.8/444.8 kB 203.9 MB/s eta 0:00:00
+2025-07-13T00:48:35.822Z [INFO] #12 15.69 Downloading pydantic_core-2.33.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+2025-07-13T00:48:36.045Z [INFO] #12 15.70    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 214.5 MB/s eta 0:00:00
+2025-07-13T00:48:36.048Z [INFO] #12 15.73 Downloading python_dotenv-1.1.1-py3-none-any.whl (20 kB)
+2025-07-13T00:48:36.051Z [INFO] #12 15.75 Downloading starlette-0.47.1-py3-none-any.whl (72 kB)
+2025-07-13T00:48:36.053Z [INFO] #12 15.76    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.7/72.7 kB 163.1 MB/s eta 0:00:00
+2025-07-13T00:48:36.055Z [INFO] #12 15.79 Downloading torch-2.7.1-cp310-cp310-manylinux_2_28_x86_64.whl (821.2 MB)
+2025-07-13T00:48:40.749Z [INFO] #12 20.46    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 821.2/821.2 MB 173.9 MB/s eta 0:00:00
+2025-07-13T00:48:40.752Z [INFO] #12 20.49 Downloading nvidia_cublas_cu12-12.6.4.1-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (393.1 MB)
+2025-07-13T00:48:43.439Z [INFO] #12 23.33    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 393.1/393.1 MB 157.1 MB/s eta 0:00:00
+2025-07-13T00:48:43.548Z [INFO] #12 23.35 Downloading nvidia_cuda_cupti_cu12-12.6.80-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.9 MB)
+2025-07-13T00:48:43.551Z [INFO] #12 23.41    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.9/8.9 MB 157.9 MB/s eta 0:00:00
+2025-07-13T00:48:43.553Z [INFO] #12 23.44 Downloading nvidia_cuda_nvrtc_cu12-12.6.77-py3-none-manylinux2014_x86_64.whl (23.7 MB)
+2025-07-13T00:48:43.715Z [INFO] #12 23.61    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.7/23.7 MB 150.3 MB/s eta 0:00:00
+2025-07-13T00:48:43.924Z [INFO] #12 23.63 Downloading nvidia_cuda_runtime_cu12-12.6.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (897 kB)
+2025-07-13T00:48:43.927Z [INFO] #12 23.64    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 897.7/897.7 kB 257.2 MB/s eta 0:00:00
+2025-07-13T00:48:43.929Z [INFO] #12 23.66 Downloading nvidia_cudnn_cu12-9.5.1.17-py3-none-manylinux_2_28_x86_64.whl (571.0 MB)
+2025-07-13T00:48:47.027Z [INFO] #12 26.92    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 571.0/571.0 MB 169.2 MB/s eta 0:00:00
+2025-07-13T00:48:47.203Z [INFO] #12 26.94 Downloading nvidia_cufft_cu12-11.3.0.4-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (200.2 MB)
+2025-07-13T00:48:48.219Z [INFO] #12 28.11    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.2/200.2 MB 171.9 MB/s eta 0:00:00
+2025-07-13T00:48:48.423Z [INFO] #12 28.13 Downloading nvidia_cufile_cu12-1.11.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.1 MB)
+2025-07-13T00:48:48.426Z [INFO] #12 28.14    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 470.9 MB/s eta 0:00:00
+2025-07-13T00:48:48.428Z [INFO] #12 28.16 Downloading nvidia_curand_cu12-10.3.7.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (56.3 MB)
+2025-07-13T00:48:48.782Z [INFO] #12 28.50    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.3/56.3 MB 196.8 MB/s eta 0:00:00
+2025-07-13T00:48:48.785Z [INFO] #12 28.52 Downloading nvidia_cusolver_cu12-11.7.1.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (158.2 MB)
+2025-07-13T00:48:49.527Z [INFO] #12 29.42    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 158.2/158.2 MB 178.2 MB/s eta 0:00:00
+2025-07-13T00:48:49.702Z [INFO] #12 29.44 Downloading nvidia_cusparse_cu12-12.5.4.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (216.6 MB)
+2025-07-13T00:48:51.044Z [INFO] #12 30.93    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.6/216.6 MB 186.5 MB/s eta 0:00:00
+2025-07-13T00:48:51.220Z [INFO] #12 30.96 Downloading nvidia_cusparselt_cu12-0.6.3-py3-none-manylinux2014_x86_64.whl (156.8 MB)
+2025-07-13T00:48:52.095Z [INFO] #12 31.99    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 156.8/156.8 MB 155.7 MB/s eta 0:00:00
+2025-07-13T00:48:52.272Z [INFO] #12 32.01 Downloading nvidia_nccl_cu12-2.26.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (201.3 MB)
+2025-07-13T00:48:53.265Z [INFO] #12 33.16    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 201.3/201.3 MB 191.1 MB/s eta 0:00:00
+2025-07-13T00:48:53.418Z [INFO] #12 33.18 Downloading nvidia_nvjitlink_cu12-12.6.85-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (19.7 MB)
+2025-07-13T00:48:53.421Z [INFO] #12 33.31    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 19.7/19.7 MB 139.5 MB/s eta 0:00:00
+2025-07-13T00:48:53.624Z [INFO] #12 33.33 Downloading nvidia_nvtx_cu12-12.6.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89 kB)
+2025-07-13T00:48:53.627Z [INFO] #12 33.34    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.3/89.3 kB 226.8 MB/s eta 0:00:00
+2025-07-13T00:48:53.629Z [INFO] #12 33.36 Downloading triton-3.3.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (155.6 MB)
+2025-07-13T00:48:54.379Z [INFO] #12 34.27    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.6/155.6 MB 172.8 MB/s eta 0:00:00
+2025-07-13T00:48:54.515Z [INFO] #12 34.30 Downloading torchaudio-2.7.1-cp310-cp310-manylinux_2_28_x86_64.whl (3.5 MB)
+2025-07-13T00:48:54.518Z [INFO] #12 34.31    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 300.6 MB/s eta 0:00:00
+2025-07-13T00:48:54.520Z [INFO] #12 34.34 Downloading transformers-4.53.2-py3-none-any.whl (10.8 MB)
+2025-07-13T00:48:54.522Z [INFO] #12 34.41    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.8/10.8 MB 168.8 MB/s eta 0:00:00
+2025-07-13T00:48:54.618Z [INFO] #12 34.43 Downloading typing_extensions-4.14.1-py3-none-any.whl (43 kB)
+2025-07-13T00:48:54.621Z [INFO] #12 34.43    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.9/43.9 kB 189.3 MB/s eta 0:00:00
+2025-07-13T00:48:54.623Z [INFO] #12 34.46 Downloading uvloop-0.21.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.8 MB)
+2025-07-13T00:48:54.625Z [INFO] #12 34.48    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 203.4 MB/s eta 0:00:00
+2025-07-13T00:48:54.627Z [INFO] #12 34.51 Downloading watchfiles-1.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (453 kB)
+2025-07-13T00:48:54.741Z [INFO] #12 34.51    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 453.1/453.1 kB 206.9 MB/s eta 0:00:00
+2025-07-13T00:48:54.744Z [INFO] #12 34.54 Downloading websockets-15.0.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (181 kB)
+2025-07-13T00:48:54.746Z [INFO] #12 34.54    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.6/181.6 kB 193.6 MB/s eta 0:00:00
+2025-07-13T00:48:54.748Z [INFO] #12 34.57 Downloading future-1.0.0-py3-none-any.whl (491 kB)
+2025-07-13T00:48:54.750Z [INFO] #12 34.58    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 491.3/491.3 kB 205.2 MB/s eta 0:00:00
+2025-07-13T00:48:54.751Z [INFO] #12 34.60 Downloading uvicorn-0.35.0-py3-none-any.whl (66 kB)
+2025-07-13T00:48:54.753Z [INFO] #12 34.61    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.4/66.4 kB 156.2 MB/s eta 0:00:00
+2025-07-13T00:48:54.755Z [INFO] #12 34.63 Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+2025-07-13T00:48:54.945Z [INFO] #12 34.66 Downloading asteroid_filterbanks-0.4.0-py3-none-any.whl (29 kB)
+2025-07-13T00:48:54.948Z [INFO] #12 34.69 Downloading av-15.0.0-cp310-cp310-manylinux_2_28_x86_64.whl (39.2 MB)
+2025-07-13T00:48:55.032Z [INFO] #12 34.92    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.2/39.2 MB 163.9 MB/s eta 0:00:00
+2025-07-13T00:48:55.146Z [INFO] #12 34.95 Downloading einops-0.8.1-py3-none-any.whl (64 kB)
+2025-07-13T00:48:55.149Z [INFO] #12 34.95    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.4/64.4 kB 384.3 MB/s eta 0:00:00
+2025-07-13T00:48:55.151Z [INFO] #12 34.98 Downloading huggingface_hub-0.33.4-py3-none-any.whl (515 kB)
+2025-07-13T00:48:55.153Z [INFO] #12 34.98    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 515.3/515.3 kB 259.2 MB/s eta 0:00:00
+2025-07-13T00:48:55.155Z [INFO] #12 35.01 Downloading fsspec-2025.5.1-py3-none-any.whl (199 kB)
+2025-07-13T00:48:55.156Z [INFO] #12 35.01    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.1/199.1 kB 177.8 MB/s eta 0:00:00
+2025-07-13T00:48:55.158Z [INFO] #12 35.04 Downloading lightning-2.5.2-py3-none-any.whl (821 kB)
+2025-07-13T00:48:55.269Z [INFO] #12 35.04    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 821.1/821.1 kB 212.3 MB/s eta 0:00:00
+2025-07-13T00:48:55.272Z [INFO] #12 35.07 Downloading omegaconf-2.3.0-py3-none-any.whl (79 kB)
+2025-07-13T00:48:55.275Z [INFO] #12 35.07    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.5/79.5 kB 167.3 MB/s eta 0:00:00
+2025-07-13T00:48:55.276Z [INFO] #12 35.10 Downloading pyannote.core-5.0.0-py3-none-any.whl (58 kB)
+2025-07-13T00:48:55.278Z [INFO] #12 35.10    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.5/58.5 kB 159.5 MB/s eta 0:00:00
+2025-07-13T00:48:55.280Z [INFO] #12 35.13 Downloading pyannote.database-5.1.3-py3-none-any.whl (48 kB)
+2025-07-13T00:48:55.281Z [INFO] #12 35.13    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.1/48.1 kB 159.1 MB/s eta 0:00:00
+2025-07-13T00:48:55.283Z [INFO] #12 35.16 Downloading pyannote.metrics-3.2.1-py3-none-any.whl (51 kB)
+2025-07-13T00:48:55.389Z [INFO] #12 35.16    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 51.4/51.4 kB 153.3 MB/s eta 0:00:00
+2025-07-13T00:48:55.392Z [INFO] #12 35.19 Downloading pyannote.pipeline-3.0.1-py3-none-any.whl (31 kB)
+2025-07-13T00:48:55.394Z [INFO] #12 35.22 Downloading pytorch_metric_learning-2.8.1-py3-none-any.whl (125 kB)
+2025-07-13T00:48:55.396Z [INFO] #12 35.22    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.9/125.9 kB 183.2 MB/s eta 0:00:00
+2025-07-13T00:48:55.398Z [INFO] #12 35.25 Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+2025-07-13T00:48:55.400Z [INFO] #12 35.25    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 509.2/509.2 kB 208.1 MB/s eta 0:00:00
+2025-07-13T00:48:55.401Z [INFO] #12 35.28 Downloading regex-2024.11.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (781 kB)
+2025-07-13T00:48:55.512Z [INFO] #12 35.29    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 781.7/781.7 kB 201.6 MB/s eta 0:00:00
+2025-07-13T00:48:55.515Z [INFO] #12 35.31 Downloading rich-14.0.0-py3-none-any.whl (243 kB)
+2025-07-13T00:48:55.517Z [INFO] #12 35.32    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 243.2/243.2 kB 200.5 MB/s eta 0:00:00
+2025-07-13T00:48:55.519Z [INFO] #12 35.34 Downloading safetensors-0.5.3-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (471 kB)
+2025-07-13T00:48:55.520Z [INFO] #12 35.35    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 471.6/471.6 kB 199.6 MB/s eta 0:00:00
+2025-07-13T00:48:55.522Z [INFO] #12 35.38 Downloading semver-3.0.4-py3-none-any.whl (17 kB)
+2025-07-13T00:48:55.524Z [INFO] #12 35.40 Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
+2025-07-13T00:48:55.618Z [INFO] #12 35.41    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 211.6 MB/s eta 0:00:00
+2025-07-13T00:48:55.621Z [INFO] #12 35.44 Downloading speechbrain-1.0.3-py3-none-any.whl (864 kB)
+2025-07-13T00:48:55.623Z [INFO] #12 35.45    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 864.1/864.1 kB 213.5 MB/s eta 0:00:00
+2025-07-13T00:48:55.625Z [INFO] #12 35.47 Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+2025-07-13T00:48:55.723Z [INFO] #12 35.51    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 182.3 MB/s eta 0:00:00
+2025-07-13T00:48:55.726Z [INFO] #12 35.54 Downloading tensorboardx-2.6.4-py3-none-any.whl (87 kB)
+2025-07-13T00:48:55.728Z [INFO] #12 35.54    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.2/87.2 kB 172.8 MB/s eta 0:00:00
+2025-07-13T00:48:55.730Z [INFO] #12 35.57 Downloading protobuf-6.31.1-cp39-abi3-manylinux2014_x86_64.whl (321 kB)
+2025-07-13T00:48:55.731Z [INFO] #12 35.57    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 321.1/321.1 kB 204.9 MB/s eta 0:00:00
+2025-07-13T00:48:55.733Z [INFO] #12 35.60 Downloading tokenizers-0.21.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+2025-07-13T00:48:55.843Z [INFO] #12 35.61    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 204.6 MB/s eta 0:00:00
+2025-07-13T00:48:55.846Z [INFO] #12 35.64 Downloading torch_audiomentations-0.12.0-py3-none-any.whl (48 kB)
+2025-07-13T00:48:55.848Z [INFO] #12 35.64    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.5/48.5 kB 161.4 MB/s eta 0:00:00
+2025-07-13T00:48:55.850Z [INFO] #12 35.67 Downloading torchmetrics-1.7.4-py3-none-any.whl (963 kB)
+2025-07-13T00:48:55.852Z [INFO] #12 35.68    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 963.5/963.5 kB 212.0 MB/s eta 0:00:00
+2025-07-13T00:48:55.854Z [INFO] #12 35.70 Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+2025-07-13T00:48:55.855Z [INFO] #12 35.71    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 kB 138.1 MB/s eta 0:00:00
+2025-07-13T00:48:55.857Z [INFO] #12 35.73 Downloading typing_inspection-0.4.1-py3-none-any.whl (14 kB)
+2025-07-13T00:48:55.956Z [INFO] #12 35.76 Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+2025-07-13T00:48:55.959Z [INFO] #12 35.77    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 347.8/347.8 kB 205.1 MB/s eta 0:00:00
+2025-07-13T00:48:55.962Z [INFO] #12 35.79 Downloading coloredlogs-15.0.1-py2.py3-none-any.whl (46 kB)
+2025-07-13T00:48:55.963Z [INFO] #12 35.79    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.0/46.0 kB 150.8 MB/s eta 0:00:00
+2025-07-13T00:48:55.965Z [INFO] #12 35.82 Downloading flatbuffers-25.2.10-py2.py3-none-any.whl (30 kB)
+2025-07-13T00:48:55.967Z [INFO] #12 35.85 Downloading joblib-1.5.1-py3-none-any.whl (307 kB)
+2025-07-13T00:48:56.062Z [INFO] #12 35.85    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 307.7/307.7 kB 203.5 MB/s eta 0:00:00
+2025-07-13T00:48:56.065Z [INFO] #12 35.88 Downloading hf_xet-1.1.5-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+2025-07-13T00:48:56.068Z [INFO] #12 35.90    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 204.9 MB/s eta 0:00:00
+2025-07-13T00:48:56.069Z [INFO] #12 35.92 Downloading humanfriendly-10.0-py2.py3-none-any.whl (86 kB)
+2025-07-13T00:48:56.071Z [INFO] #12 35.93    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 86.8/86.8 kB 160.9 MB/s eta 0:00:00
+2025-07-13T00:48:56.073Z [INFO] #12 35.95 Downloading lightning_utilities-0.14.3-py3-none-any.whl (28 kB)
+2025-07-13T00:48:56.177Z [INFO] #12 35.98 Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+2025-07-13T00:48:56.180Z [INFO] #12 35.98    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.5/87.5 kB 167.6 MB/s eta 0:00:00
+2025-07-13T00:48:56.182Z [INFO] #12 36.01 Downloading matplotlib-3.10.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.6 MB)
+2025-07-13T00:48:56.328Z [INFO] #12 36.07    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.6/8.6 MB 157.5 MB/s eta 0:00:00
+2025-07-13T00:48:56.331Z [INFO] #12 36.10 Downloading optuna-4.4.0-py3-none-any.whl (395 kB)
+2025-07-13T00:48:56.333Z [INFO] #12 36.11    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 395.9/395.9 kB 201.9 MB/s eta 0:00:00
+2025-07-13T00:48:56.335Z [INFO] #12 36.14 Downloading scikit_learn-1.7.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.9 MB)
+2025-07-13T00:48:56.505Z [INFO] #12 36.22    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.9/12.9 MB 154.0 MB/s eta 0:00:00
+2025-07-13T00:48:56.508Z [INFO] #12 36.24 Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+2025-07-13T00:48:56.615Z [INFO] #12 36.51    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 149.7 MB/s eta 0:00:00
+2025-07-13T00:48:56.722Z [INFO] #12 36.53 Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+2025-07-13T00:48:56.725Z [INFO] #12 36.56 Downloading tabulate-0.9.0-py3-none-any.whl (35 kB)
+2025-07-13T00:48:56.727Z [INFO] #12 36.59 Downloading torch_pitch_shift-1.2.5-py3-none-any.whl (5.0 kB)
+2025-07-13T00:48:56.729Z [INFO] #12 36.61 Downloading typer-0.16.0-py3-none-any.whl (46 kB)
+2025-07-13T00:48:56.824Z [INFO] #12 36.62    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.3/46.3 kB 155.1 MB/s eta 0:00:00
+2025-07-13T00:48:56.827Z [INFO] #12 36.64 Downloading HyperPyYAML-1.2.2-py3-none-any.whl (16 kB)
+2025-07-13T00:48:56.829Z [INFO] #12 36.67 Downloading pytorch_lightning-2.5.2-py3-none-any.whl (825 kB)
+2025-07-13T00:48:56.831Z [INFO] #12 36.68    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 825.4/825.4 kB 213.0 MB/s eta 0:00:00
+2025-07-13T00:48:56.833Z [INFO] #12 36.71 Downloading sentencepiece-0.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.3 MB)
+2025-07-13T00:48:56.949Z [INFO] #12 36.72    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 214.7 MB/s eta 0:00:00
+2025-07-13T00:48:56.952Z [INFO] #12 36.74 Downloading aiohttp-3.12.14-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.6 MB)
+2025-07-13T00:48:56.954Z [INFO] #12 36.75    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 204.6 MB/s eta 0:00:00
+2025-07-13T00:48:56.956Z [INFO] #12 36.78 Downloading alembic-1.16.4-py3-none-any.whl (247 kB)
+2025-07-13T00:48:56.958Z [INFO] #12 36.78    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 247.0/247.0 kB 201.1 MB/s eta 0:00:00
+2025-07-13T00:48:56.959Z [INFO] #12 36.81 Downloading contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (325 kB)
+2025-07-13T00:48:56.961Z [INFO] #12 36.81    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 325.0/325.0 kB 202.5 MB/s eta 0:00:00
+2025-07-13T00:48:56.963Z [INFO] #12 36.84 Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+2025-07-13T00:48:57.074Z [INFO] #12 36.87 Downloading fonttools-4.58.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.8 MB)
+2025-07-13T00:48:57.076Z [INFO] #12 36.90    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 179.3 MB/s eta 0:00:00
+2025-07-13T00:48:57.078Z [INFO] #12 36.92 Downloading kiwisolver-1.4.8-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+2025-07-13T00:48:57.080Z [INFO] #12 36.93    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 207.5 MB/s eta 0:00:00
+2025-07-13T00:48:57.082Z [INFO] #12 36.96 Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+2025-07-13T00:48:57.183Z [INFO] #12 36.99 Downloading primePy-1.3-py3-none-any.whl (4.0 kB)
+2025-07-13T00:48:57.186Z [INFO] #12 37.02 Downloading ruamel.yaml-0.18.14-py3-none-any.whl (118 kB)
+2025-07-13T00:48:57.188Z [INFO] #12 37.02    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 118.6/118.6 kB 173.2 MB/s eta 0:00:00
+2025-07-13T00:48:57.190Z [INFO] #12 37.05 Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+2025-07-13T00:48:57.192Z [INFO] #12 37.07 Downloading sqlalchemy-2.0.41-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+2025-07-13T00:48:57.308Z [INFO] #12 37.09    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 205.7 MB/s eta 0:00:00
+2025-07-13T00:48:57.311Z [INFO] #12 37.12 Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+2025-07-13T00:48:57.313Z [INFO] #12 37.15 Downloading colorlog-6.9.0-py3-none-any.whl (11 kB)
+2025-07-13T00:48:57.315Z [INFO] #12 37.17 Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+2025-07-13T00:48:57.316Z [INFO] #12 37.20 Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+2025-07-13T00:48:57.423Z [INFO] #12 37.22 Downloading async_timeout-5.0.1-py3-none-any.whl (6.2 kB)
+2025-07-13T00:48:57.426Z [INFO] #12 37.25 Downloading frozenlist-1.7.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (222 kB)
+2025-07-13T00:48:57.428Z [INFO] #12 37.26    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 222.9/222.9 kB 193.2 MB/s eta 0:00:00
+2025-07-13T00:48:57.430Z [INFO] #12 37.28 Downloading greenlet-3.2.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (582 kB)
+2025-07-13T00:48:57.431Z [INFO] #12 37.29    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 582.2/582.2 kB 209.3 MB/s eta 0:00:00
+2025-07-13T00:48:57.433Z [INFO] #12 37.31 Downloading multidict-6.6.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (241 kB)
+2025-07-13T00:48:57.548Z [INFO] #12 37.32    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 241.6/241.6 kB 200.0 MB/s eta 0:00:00
+2025-07-13T00:48:57.551Z [INFO] #12 37.34 Downloading propcache-0.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (198 kB)
+2025-07-13T00:48:57.553Z [INFO] #12 37.35    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.3/198.3 kB 193.9 MB/s eta 0:00:00
+2025-07-13T00:48:57.555Z [INFO] #12 37.38 Downloading ruamel.yaml.clib-0.2.12-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (722 kB)
+2025-07-13T00:48:57.557Z [INFO] #12 37.38    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 722.2/722.2 kB 210.2 MB/s eta 0:00:00
+2025-07-13T00:48:57.559Z [INFO] #12 37.41 Downloading yarl-1.20.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (326 kB)
+2025-07-13T00:48:57.560Z [INFO] #12 37.41    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 326.1/326.1 kB 203.5 MB/s eta 0:00:00
+2025-07-13T00:48:57.562Z [INFO] #12 37.44 Downloading mako-1.3.10-py3-none-any.whl (78 kB)
+2025-07-13T00:48:57.702Z [INFO] #12 37.44    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 kB 173.8 MB/s eta 0:00:00
+2025-07-13T00:49:00.416Z [INFO] #12 40.31 Building wheels for collected packages: antlr4-python3-runtime, docopt, julius
+2025-07-13T00:49:00.567Z [INFO] #12 40.31   Building wheel for antlr4-python3-runtime (setup.py): started
+2025-07-13T00:49:00.621Z [INFO] #12 40.51   Building wheel for antlr4-python3-runtime (setup.py): finished with status 'done'
+2025-07-13T00:49:00.776Z [INFO] #12 40.51   Created wheel for antlr4-python3-runtime: filename=antlr4_python3_runtime-4.9.3-py3-none-any.whl size=144555 sha256=a538db8c9e201ddde20d6ad5a8ff854db84637d43bec03d42d5770092bf2d32a
+2025-07-13T00:49:00.779Z [INFO] #12 40.51   Stored in directory: /tmp/pip-ephem-wheel-cache-i0f30s7f/wheels/12/93/dd/1f6a127edc45659556564c5730f6d4e300888f4bca2d4c5a88
+2025-07-13T00:49:00.781Z [INFO] #12 40.52   Building wheel for docopt (setup.py): started
+2025-07-13T00:49:00.798Z [INFO] #12 40.69   Building wheel for docopt (setup.py): finished with status 'done'
+2025-07-13T00:49:00.953Z [INFO] #12 40.69   Created wheel for docopt: filename=docopt-0.6.2-py2.py3-none-any.whl size=13706 sha256=25b1213cf7bfc59bf8c428529544a6211e510d6fe3ef7b0e2f4ab2b6c1abf915
+2025-07-13T00:49:00.956Z [INFO] #12 40.69   Stored in directory: /tmp/pip-ephem-wheel-cache-i0f30s7f/wheels/fc/ab/d4/5da2067ac95b36618c629a5f93f809425700506f72c9732fac
+2025-07-13T00:49:00.958Z [INFO] #12 40.69   Building wheel for julius (setup.py): started
+2025-07-13T00:49:00.977Z [INFO] #12 40.87   Building wheel for julius (setup.py): finished with status 'done'
+2025-07-13T00:49:01.131Z [INFO] #12 40.87   Created wheel for julius: filename=julius-0.2.7-py3-none-any.whl size=21869 sha256=9f928a6de07442977337cf5df492a66e70aa343b1938b012d8151653960a4920
+2025-07-13T00:49:01.134Z [INFO] #12 40.87   Stored in directory: /tmp/pip-ephem-wheel-cache-i0f30s7f/wheels/b9/b2/05/f883527ffcb7f2ead5438a2c23439aa0c881eaa9a4c80256f4
+2025-07-13T00:49:01.136Z [INFO] #12 40.87 Successfully built antlr4-python3-runtime docopt julius
+2025-07-13T00:49:02.556Z [INFO] #12 42.45 Installing collected packages: sortedcontainers, sentencepiece, pytz, primePy, nvidia-cusparselt-cu12, flatbuffers, docopt, antlr4-python3-runtime, websockets, uvloop, tzdata, typing-extensions, triton, tqdm, threadpoolctl, tabulate, sympy, shellingham, semver, safetensors, ruamel.yaml.clib, regex, python-multipart, python-dotenv, protobuf, propcache, omegaconf, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufile-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, mdurl, Mako, kiwisolver, joblib, humanfriendly, httptools, hf-xet, h11, greenlet, future, fsspec, frozenlist, fonttools, einops, cycler, colorlog, click, av, async-timeout, annotated-types, aiohappyeyeballs, watchfiles, uvicorn, typing-inspection, tensorboardX, starlette, sqlalchemy, soundfile, scipy, ruamel.yaml, pydantic-core, pandas, nvidia-cusparse-cu12, nvidia-cufft-cu12, nvidia-cudnn-cu12, nltk, multidict, markdown-it-py, lightning-utilities, huggingface-hub, ffmpeg-python, ctranslate2, contourpy, coloredlogs, aiosignal, yarl, tokenizers, scikit-learn, rich, pydantic, pyannote.core, onnxruntime, nvidia-cusolver-cu12, matplotlib, hyperpyyaml, alembic, typer, transformers, torch, optuna, faster-whisper, fastapi, aiohttp, torchmetrics, torchaudio, pytorch-metric-learning, pyannote.database, julius, asteroid-filterbanks, torch-pitch-shift, speechbrain, pytorch-lightning, pyannote.pipeline, pyannote.metrics, torch-audiomentations, lightning, pyannote-audio, whisperx
+2025-07-13T00:49:04.209Z [INFO] #12 44.10   Attempting uninstall: typing-extensions
+2025-07-13T00:49:04.335Z [INFO] #12 44.10     Found existing installation: typing_extensions 4.4.0
+2025-07-13T00:49:04.338Z [INFO] #12 44.10     Uninstalling typing_extensions-4.4.0:
+2025-07-13T00:49:04.340Z [INFO] #12 44.23       Successfully uninstalled typing_extensions-4.4.0
+2025-07-13T00:49:04.583Z [INFO] #12 44.24   Attempting uninstall: triton
+2025-07-13T00:49:04.586Z [INFO] #12 44.24     Found existing installation: triton 2.1.0
+2025-07-13T00:49:04.588Z [INFO] #12 44.25     Uninstalling triton-2.1.0:
+2025-07-13T00:49:04.591Z [INFO] #12 44.32       Successfully uninstalled triton-2.1.0
+2025-07-13T00:49:06.364Z [INFO] #12 46.25   Attempting uninstall: sympy
+2025-07-13T00:49:06.475Z [INFO] #12 46.26     Found existing installation: sympy 1.12
+2025-07-13T00:49:06.478Z [INFO] #12 46.37     Uninstalling sympy-1.12:
+2025-07-13T00:49:07.095Z [INFO] #12 46.99       Successfully uninstalled sympy-1.12
+2025-07-13T00:49:15.880Z [INFO] #12 55.77   Attempting uninstall: numpy
+2025-07-13T00:49:16.077Z [INFO] #12 55.77     Found existing installation: numpy 1.24.1
+2025-07-13T00:49:16.080Z [INFO] #12 55.82     Uninstalling numpy-1.24.1:
+2025-07-13T00:49:16.169Z [INFO] #12 56.06       Successfully uninstalled numpy-1.24.1
+2025-07-13T00:49:17.899Z [INFO] #12 57.79   Attempting uninstall: fsspec
+2025-07-13T00:49:18.069Z [INFO] #12 57.79     Found existing installation: fsspec 2023.4.0
+2025-07-13T00:49:18.072Z [INFO] #12 57.79     Uninstalling fsspec-2023.4.0:
+2025-07-13T00:49:18.074Z [INFO] #12 57.81       Successfully uninstalled fsspec-2023.4.0
+2025-07-13T00:49:41.237Z [INFO] #12 81.13   Attempting uninstall: torch
+2025-07-13T00:49:41.388Z [INFO] #12 81.13     Found existing installation: torch 2.1.0+cu118
+2025-07-13T00:49:41.527Z [INFO] #12 81.42     Uninstalling torch-2.1.0+cu118:
+2025-07-13T00:49:44.187Z [INFO] #12 84.08       Successfully uninstalled torch-2.1.0+cu118
+2025-07-13T00:49:56.907Z [INFO] #12 96.80   Attempting uninstall: torchaudio
+2025-07-13T00:49:57.114Z [INFO] #12 96.80     Found existing installation: torchaudio 2.1.0+cu118
+2025-07-13T00:49:57.117Z [INFO] #12 96.81     Uninstalling torchaudio-2.1.0+cu118:
+2025-07-13T00:49:57.120Z [INFO] #12 96.85       Successfully uninstalled torchaudio-2.1.0+cu118
+2025-07-13T00:49:58.345Z [INFO] #12 98.24 ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+2025-07-13T00:49:58.348Z [INFO] #12 98.24 torchvision 0.16.0+cu118 requires torch==2.1.0, but you have torch 2.7.1 which is incompatible.
+2025-07-13T00:49:58.496Z [INFO] #12 98.24 Successfully installed Mako-1.3.10 aiohappyeyeballs-2.6.1 aiohttp-3.12.14 aiosignal-1.4.0 alembic-1.16.4 annotated-types-0.7.0 antlr4-python3-runtime-4.9.3 asteroid-filterbanks-0.4.0 async-timeout-5.0.1 av-15.0.0 click-8.2.1 coloredlogs-15.0.1 colorlog-6.9.0 contourpy-1.3.2 ctranslate2-4.4.0 cycler-0.12.1 docopt-0.6.2 einops-0.8.1 fastapi-0.116.1 faster-whisper-1.1.1 ffmpeg-python-0.2.0 flatbuffers-25.2.10 fonttools-4.58.5 frozenlist-1.7.0 fsspec-2025.5.1 future-1.0.0 greenlet-3.2.3 h11-0.16.0 hf-xet-1.1.5 httptools-0.6.4 huggingface-hub-0.33.4 humanfriendly-10.0 hyperpyyaml-1.2.2 joblib-1.5.1 julius-0.2.7 kiwisolver-1.4.8 lightning-2.5.2 lightning-utilities-0.14.3 markdown-it-py-3.0.0 matplotlib-3.10.3 mdurl-0.1.2 multidict-6.6.3 nltk-3.9.1 numpy-2.2.6 nvidia-cublas-cu12-12.6.4.1 nvidia-cuda-cupti-cu12-12.6.80 nvidia-cuda-nvrtc-cu12-12.6.77 nvidia-cuda-runtime-cu12-12.6.77 nvidia-cudnn-cu12-9.5.1.17 nvidia-cufft-cu12-11.3.0.4 nvidia-cufile-cu12-1.11.1.6 nvidia-curand-cu12-10.3.7.77 nvidia-cusolver-cu12-11.7.1.2 nvidia-cusparse-cu12-12.5.4.2 nvidia-cusparselt-cu12-0.6.3 nvidia-nccl-cu12-2.26.2 nvidia-nvjitlink-cu12-12.6.85 nvidia-nvtx-cu12-12.6.77 omegaconf-2.3.0 onnxruntime-1.22.1 optuna-4.4.0 pandas-2.3.1 primePy-1.3 propcache-0.3.2 protobuf-6.31.1 pyannote-audio-3.3.2 pyannote.core-5.0.0 pyannote.database-5.1.3 pyannote.metrics-3.2.1 pyannote.pipeline-3.0.1 pydantic-2.11.7 pydantic-core-2.33.2 python-dotenv-1.1.1 python-multipart-0.0.20 pytorch-lightning-2.5.2 pytorch-metric-learning-2.8.1 pytz-2025.2 regex-2024.11.6 rich-14.0.0 ruamel.yaml-0.18.14 ruamel.yaml.clib-0.2.12 safetensors-0.5.3 scikit-learn-1.7.0 scipy-1.15.3 semver-3.0.4 sentencepiece-0.2.0 shellingham-1.5.4 sortedcontainers-2.4.0 soundfile-0.13.1 speechbrain-1.0.3 sqlalchemy-2.0.41 starlette-0.47.1 sympy-1.14.0 tabulate-0.9.0 tensorboardX-2.6.4 threadpoolctl-3.6.0 tokenizers-0.21.2 torch-2.7.1 torch-audiomentations-0.12.0 torch-pitch-shift-1.2.5 torchaudio-2.7.1 torchmetrics-1.7.4 tqdm-4.67.1 transformers-4.53.2 triton-3.3.1 typer-0.16.0 typing-extensions-4.14.1 typing-inspection-0.4.1 tzdata-2025.2 uvicorn-0.35.0 uvloop-0.21.0 watchfiles-1.1.0 websockets-15.0.1 whisperx-3.4.2 yarl-1.20.1
+2025-07-13T00:49:58.499Z [INFO] #12 98.24 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+2025-07-13T00:49:58.502Z [INFO] #12 98.39
+2025-07-13T00:49:58.504Z [INFO] #12 98.39 [notice] A new release of pip is available: 23.3.1 -> 25.1.1
+2025-07-13T00:49:58.506Z [INFO] #12 98.39 [notice] To update, run: python -m pip install --upgrade pip
+2025-07-13T00:50:01.497Z [INFO] #12 DONE 101.4s
+2025-07-13T00:50:01.648Z [INFO] 
+2025-07-13T00:50:01.651Z [INFO] #13 [6/8] COPY app.py .
+2025-07-13T00:50:01.825Z [INFO] #13 DONE 0.3s
+2025-07-13T00:50:02.001Z [INFO] 
+2025-07-13T00:50:02.003Z [INFO] #14 [7/8] COPY models.py .
+2025-07-13T00:50:02.005Z [INFO] #14 DONE 0.0s
+2025-07-13T00:50:02.007Z [INFO] 
+2025-07-13T00:50:02.009Z [INFO] #15 [8/8] RUN mkdir -p /tmp/whisper
+2025-07-13T00:50:02.046Z [INFO] #15 DONE 0.2s
+2025-07-13T00:50:02.197Z [INFO] 
+2025-07-13T00:50:02.199Z [INFO] #16 exporting to oci image format. This takes a little bit of time. Please be patient.
+2025-07-13T00:50:02.201Z [INFO] #16 exporting layers
+2025-07-13T00:52:31.566Z [INFO] #16 exporting layers 149.5s done
+2025-07-13T00:52:31.722Z [INFO] #16 exporting manifest sha256:dcdc9218b1d1c90136281e75d70fb2d3b72a42662a8d1c11108be808928dd069 done
+2025-07-13T00:52:31.725Z [INFO] #16 exporting config sha256:cba647d91dcffe213a09d9755581dd1db83d155dd4416bc7911ceeb793686597 done
+2025-07-13T00:52:31.726Z [INFO] #16 sending tarball
+2025-07-13T00:52:55.939Z [INFO] #16 sending tarball 24.4s done
+2025-07-13T00:52:55.940Z [INFO] #16 DONE 173.9s
+2025-07-13T00:52:56.041Z [INFO] 
+2025-07-13T00:52:56.043Z [INFO] #17 exporting cache to client directory
+2025-07-13T00:52:56.045Z [INFO] #17 preparing build cache for export
+2025-07-13T00:52:56.047Z [INFO] #17 writing layer sha256:007371b4c1e23dc80e02c62dd28077debb5791d3177cd4e69db12571a78f380c done
+2025-07-13T00:52:56.049Z [INFO] #17 writing layer sha256:0277edf9904e8940c111d2029918531d262cc9d2f4662f88f1712eef6c653f1b done
+2025-07-13T00:52:56.051Z [INFO] #17 writing layer sha256:24a27a9216b075f2f81518300a4ca1914171cef3fa5fb60fe5cb30bb45d379f3 done
+2025-07-13T00:52:56.052Z [INFO] #17 writing layer sha256:2997c68d7f1673dc961463a259687df0cc4605a5be2a31d2fbebfba8cad55424 done
+2025-07-13T00:52:56.054Z [INFO] #17 writing layer sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553 done
+2025-07-13T00:52:56.056Z [INFO] #17 writing layer sha256:4304fa233a80418a848565c712c6ebcb670c1c2d076c419f65f8bf3e49526b08 done
+2025-07-13T00:52:56.057Z [INFO] #17 writing layer sha256:44d8a5c35cf0f3feaab663cc8987fbfd68aa3c2e0dab3b7c0c553bb7e51140f6 done
+2025-07-13T00:52:56.059Z [INFO] #17 writing layer sha256:4586c00479c64413175c7b90a66073cfd574ca0a9ee099495ba8a58a0819d8b9 done
+2025-07-13T00:52:56.061Z [INFO] #17 writing layer sha256:4fc6fac4ce28ba43ef1ae0eb16930a8920024dad0a19e14295f011fadb252938 done
+2025-07-13T00:52:56.062Z [INFO] #17 writing layer sha256:52d067c95c51704869a11e3d320d67a2c8ff10aa610ec022ee5f8d1dc04635c8 done
+2025-07-13T00:52:56.064Z [INFO] #17 writing layer sha256:532566f1f7a390aaa6027298532a8f97a3eb7fcec528be1c229e6ba92b80c6fe 0.1s done
+2025-07-13T00:52:56.066Z [INFO] #17 writing layer sha256:540509e5c7b1197cd58a50ac766c12527e02ff6f6976038388540d7e208377f3
+2025-07-13T00:52:56.180Z [INFO] #17 writing layer sha256:540509e5c7b1197cd58a50ac766c12527e02ff6f6976038388540d7e208377f3 done
+2025-07-13T00:52:56.183Z [INFO] #17 writing layer sha256:621b36751ee7210b11852061c80e4255877b67c00e1755edaf36beb46fc2c5fa done
+2025-07-13T00:52:56.185Z [INFO] #17 writing layer sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 done
+2025-07-13T00:52:56.186Z [INFO] #17 writing layer sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb done
+2025-07-13T00:52:56.188Z [INFO] #17 writing layer sha256:6a0b9ce97b3d4a4a6e37a1a9d16237718f0187ab3307552c6951a4102232e9a7 done
+2025-07-13T00:52:56.190Z [INFO] #17 writing layer sha256:6b851dcae6ca1461dde247915abc5048061f34332929ca8fb37d9dc18f2e2f44 done
+2025-07-13T00:52:56.192Z [INFO] #17 writing layer sha256:703b840faf29ab8393ad78fe09078c6e429ff009e2e52e6507d89341d9f61aef done
+2025-07-13T00:52:56.193Z [INFO] #17 writing layer sha256:81790d1a232758f29a8890a170ed27d000348dba1ce0ba299ea1e570ad71f6e0 done
+2025-07-13T00:52:56.195Z [INFO] #17 writing layer sha256:8d59cffc970b4aa08197cdaef331803cca46e931238c951e5c7401f8446d997e 0.1s done
+2025-07-13T00:52:56.197Z [INFO] #17 writing layer sha256:95006e8f93d1ebb3a8b9224643dfb41b0b69203bda58099cbcbc506be781c18c 0.1s done
+2025-07-13T00:52:56.198Z [INFO] #17 writing layer sha256:a6a98a6581c0431ace79eb47962770cfcc0897778ed28927bfc9905c4777af39
+2025-07-13T00:52:56.335Z [INFO] #17 writing layer sha256:a6a98a6581c0431ace79eb47962770cfcc0897778ed28927bfc9905c4777af39 done
+2025-07-13T00:52:56.337Z [INFO] #17 writing layer sha256:afa3f70b397f64c9ae4c406c33113bc1929d64b744b21f934978e7e4def3c7b6 done
+2025-07-13T00:52:56.339Z [INFO] #17 writing layer sha256:afec03310895927dd70d086aff541fae64ccffe2132adbf453a5bf4a60c62f9f done
+2025-07-13T00:52:56.341Z [INFO] #17 writing layer sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd
+2025-07-13T00:53:22.034Z [INFO] #17 writing layer sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd 25.8s done
+2025-07-13T00:53:22.039Z [INFO] #17 writing layer sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420
+2025-07-13T00:53:22.179Z [INFO] #17 writing layer sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 done
+2025-07-13T00:53:22.182Z [INFO] #17 writing layer sha256:c4a5e6c74f13248b950458aa8c3ea386ef6e8b555cd7926a5debbeef380e3685 done
+2025-07-13T00:53:22.185Z [INFO] #17 writing layer sha256:c896f96eac0e1a1e8005414896bffa52728168a49de44387b12c0932232ed59f done
+2025-07-13T00:53:22.186Z [INFO] #17 writing layer sha256:c9db1c0c03c500a72fea1a0e51483f2f53c1bb439b20a8313bba4c972755eec7 0.1s done
+2025-07-13T00:53:22.188Z [INFO] #17 writing layer sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 done
+2025-07-13T00:53:22.190Z [INFO] #17 writing layer sha256:d2d032fd34370514fbf6f51498b101a8f3958d47bb923a710a29448dce725539 done
+2025-07-13T00:53:22.192Z [INFO] #17 writing layer sha256:d963a42bc71212aa841b9e02f08b835b9c54a833eb2ace0733666774ca570cef done
+2025-07-13T00:53:22.194Z [INFO] #17 writing layer sha256:dcc5cb2e431749994aa9450c3319736a955560260ee2d7dfe68afc88258e6e05 done
+2025-07-13T00:53:22.196Z [INFO] #17 writing layer sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 done
+2025-07-13T00:53:22.198Z [INFO] #17 writing layer sha256:e5f5c15a666415cd3010024e939e14c0051fbebedf71e5c10e2a95f6496e1c02 done
+2025-07-13T00:53:22.199Z [INFO] #17 writing config sha256:80023ebfb62094d9eb594df9b62d91189914fa554a5ac16a5f3b3ce27ff77544 0.1s done
+2025-07-13T00:53:22.296Z [INFO] #17 preparing build cache for export 26.3s done
+2025-07-13T00:53:22.299Z [INFO] #17 writing cache manifest sha256:0fa3b10ca0a5efd5e3631045662761f90583a765dae96b5767d6d6a59176ca38 0.1s done
+2025-07-13T00:53:22.302Z [INFO] #17 DONE 26.3s
+2025-07-13T00:53:22.304Z [INFO] WARNING: current commit information was not captured by the build: git was not found in the system: exec: "git": executable file not found in $PATH
+2025-07-13T00:53:22.314Z [INFO] eager_blackburn
+2025-07-13T00:53:22.317Z [INFO] Build complete.
+2025-07-13T00:53:33.302Z [INFO] Pushing image to registry. This takes some time - please be patient.
+2025-07-13T00:53:33.367Z [INFO] Preparing image...
+2025-07-13T00:53:33.369Z [INFO] Image registry.runpod.net/703deuce-whisper-master-dockerfile:0d7a7bdc8 found locally, saving to disk...
+2025-07-13T00:53:33.371Z [INFO] Image saved as output.tar, extracting...
+2025-07-13T00:53:35.689Z [INFO] Extracted to .output-image
+2025-07-13T00:53:35.692Z [INFO] {
+2025-07-13T00:53:35.694Z [INFO] schemaVersion: 2,
+2025-07-13T00:53:35.696Z [INFO] mediaType: "application/vnd.oci.image.index.v1+json",
+2025-07-13T00:53:35.698Z [INFO] manifests: [
+2025-07-13T00:53:35.700Z [INFO] {
+2025-07-13T00:53:35.701Z [INFO] mediaType: "application/vnd.oci.image.manifest.v1+json",
+2025-07-13T00:53:35.703Z [INFO] digest: "sha256:dcdc9218b1d1c90136281e75d70fb2d3b72a42662a8d1c11108be808928dd069",
+2025-07-13T00:53:35.705Z [INFO] size: 6954,
+2025-07-13T00:53:35.706Z [INFO] annotations: [Object ...],
+2025-07-13T00:53:35.708Z [INFO] platform: [Object ...],
+2025-07-13T00:53:35.710Z [INFO] }
+2025-07-13T00:53:35.711Z [INFO] ],
+2025-07-13T00:53:35.713Z [INFO] }
+2025-07-13T00:53:35.715Z [INFO] dcdc9218b1d1c90136281e75d70fb2d3b72a42662a8d1c11108be808928dd069 manifest file found
+2025-07-13T00:53:35.716Z [INFO] {
+2025-07-13T00:53:35.718Z [INFO] schemaVersion: 2,
+2025-07-13T00:53:35.720Z [INFO] mediaType: "application/vnd.oci.image.manifest.v1+json",
+2025-07-13T00:53:35.721Z [INFO] config: {
+2025-07-13T00:53:35.723Z [INFO] mediaType: "application/vnd.oci.image.config.v1+json",
+2025-07-13T00:53:35.724Z [INFO] digest: "sha256:cba647d91dcffe213a09d9755581dd1db83d155dd4416bc7911ceeb793686597",
+2025-07-13T00:53:35.726Z [INFO] size: 27600,
+2025-07-13T00:53:35.728Z [INFO] },
+2025-07-13T00:53:35.729Z [INFO] layers: [
+2025-07-13T00:53:35.731Z [INFO] {
+2025-07-13T00:53:35.733Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.734Z [INFO] digest: "sha256:6b851dcae6ca1461dde247915abc5048061f34332929ca8fb37d9dc18f2e2f44",
+2025-07-13T00:53:35.736Z [INFO] size: 29533050,
+2025-07-13T00:53:35.738Z [INFO] }, {
+2025-07-13T00:53:35.739Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.740Z [INFO] digest: "sha256:4586c00479c64413175c7b90a66073cfd574ca0a9ee099495ba8a58a0819d8b9",
+2025-07-13T00:53:35.742Z [INFO] size: 4622553,
+2025-07-13T00:53:35.743Z [INFO] }, {
+2025-07-13T00:53:35.744Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.745Z [INFO] digest: "sha256:4304fa233a80418a848565c712c6ebcb670c1c2d076c419f65f8bf3e49526b08",
+2025-07-13T00:53:35.747Z [INFO] size: 56227567,
+2025-07-13T00:53:35.748Z [INFO] }, {
+2025-07-13T00:53:35.749Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.751Z [INFO] digest: "sha256:afa3f70b397f64c9ae4c406c33113bc1929d64b744b21f934978e7e4def3c7b6",
+2025-07-13T00:53:35.752Z [INFO] size: 181,
+2025-07-13T00:53:35.753Z [INFO] }, {
+2025-07-13T00:53:35.755Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.756Z [INFO] digest: "sha256:d963a42bc71212aa841b9e02f08b835b9c54a833eb2ace0733666774ca570cef",
+2025-07-13T00:53:35.757Z [INFO] size: 6880,
+2025-07-13T00:53:35.757Z [INFO] }, {
+2025-07-13T00:53:35.758Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.759Z [INFO] digest: "sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2",
+2025-07-13T00:53:35.760Z [INFO] size: 1378857287,
+2025-07-13T00:53:35.760Z [INFO] }, {
+2025-07-13T00:53:35.761Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.762Z [INFO] digest: "sha256:c4a5e6c74f13248b950458aa8c3ea386ef6e8b555cd7926a5debbeef380e3685",
+2025-07-13T00:53:35.762Z [INFO] size: 63680,
+2025-07-13T00:53:35.763Z [INFO] }, {
+2025-07-13T00:53:35.764Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.765Z [INFO] digest: "sha256:afec03310895927dd70d086aff541fae64ccffe2132adbf453a5bf4a60c62f9f",
+2025-07-13T00:53:35.765Z [INFO] size: 1681,
+2025-07-13T00:53:35.766Z [INFO] }, {
+2025-07-13T00:53:35.767Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.767Z [INFO] digest: "sha256:44d8a5c35cf0f3feaab663cc8987fbfd68aa3c2e0dab3b7c0c553bb7e51140f6",
+2025-07-13T00:53:35.768Z [INFO] size: 1522,
+2025-07-13T00:53:35.769Z [INFO] }, {
+2025-07-13T00:53:35.770Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.770Z [INFO] digest: "sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8",
+2025-07-13T00:53:35.771Z [INFO] size: 2460258646,
+2025-07-13T00:53:35.772Z [INFO] }, {
+2025-07-13T00:53:35.772Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.773Z [INFO] digest: "sha256:e5f5c15a666415cd3010024e939e14c0051fbebedf71e5c10e2a95f6496e1c02",
+2025-07-13T00:53:35.774Z [INFO] size: 88206,
+2025-07-13T00:53:35.775Z [INFO] }, {
+2025-07-13T00:53:35.775Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.776Z [INFO] digest: "sha256:540509e5c7b1197cd58a50ac766c12527e02ff6f6976038388540d7e208377f3",
+2025-07-13T00:53:35.777Z [INFO] size: 99,
+2025-07-13T00:53:35.777Z [INFO] }, {
+2025-07-13T00:53:35.778Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.779Z [INFO] digest: "sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1",
+2025-07-13T00:53:35.780Z [INFO] size: 205801840,
+2025-07-13T00:53:35.780Z [INFO] }, {
+2025-07-13T00:53:35.781Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.782Z [INFO] digest: "sha256:703b840faf29ab8393ad78fe09078c6e429ff009e2e52e6507d89341d9f61aef",
+2025-07-13T00:53:35.782Z [INFO] size: 10622893,
+2025-07-13T00:53:35.783Z [INFO] }, {
+2025-07-13T00:53:35.784Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.785Z [INFO] digest: "sha256:621b36751ee7210b11852061c80e4255877b67c00e1755edaf36beb46fc2c5fa",
+2025-07-13T00:53:35.785Z [INFO] size: 92,
+2025-07-13T00:53:35.786Z [INFO] }, {
+2025-07-13T00:53:35.787Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.787Z [INFO] digest: "sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb",
+2025-07-13T00:53:35.788Z [INFO] size: 2489567779,
+2025-07-13T00:53:35.789Z [INFO] }, {
+2025-07-13T00:53:35.790Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.790Z [INFO] digest: "sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553",
+2025-07-13T00:53:35.791Z [INFO] size: 78851314,
+2025-07-13T00:53:35.792Z [INFO] }, {
+2025-07-13T00:53:35.792Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.793Z [INFO] digest: "sha256:81790d1a232758f29a8890a170ed27d000348dba1ce0ba299ea1e570ad71f6e0",
+2025-07-13T00:53:35.794Z [INFO] size: 23414063,
+2025-07-13T00:53:35.794Z [INFO] }, {
+2025-07-13T00:53:35.795Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.796Z [INFO] digest: "sha256:c896f96eac0e1a1e8005414896bffa52728168a49de44387b12c0932232ed59f",
+2025-07-13T00:53:35.797Z [INFO] size: 23300256,
+2025-07-13T00:53:35.797Z [INFO] }, {
+2025-07-13T00:53:35.798Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.799Z [INFO] digest: "sha256:52d067c95c51704869a11e3d320d67a2c8ff10aa610ec022ee5f8d1dc04635c8",
+2025-07-13T00:53:35.799Z [INFO] size: 240,
+2025-07-13T00:53:35.800Z [INFO] }, {
+2025-07-13T00:53:35.801Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.802Z [INFO] digest: "sha256:a6a98a6581c0431ace79eb47962770cfcc0897778ed28927bfc9905c4777af39",
+2025-07-13T00:53:35.802Z [INFO] size: 729,
+2025-07-13T00:53:35.803Z [INFO] }, {
+2025-07-13T00:53:35.804Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.804Z [INFO] digest: "sha256:24a27a9216b075f2f81518300a4ca1914171cef3fa5fb60fe5cb30bb45d379f3",
+2025-07-13T00:53:35.805Z [INFO] size: 753,
+2025-07-13T00:53:35.806Z [INFO] }, {
+2025-07-13T00:53:35.807Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.807Z [INFO] digest: "sha256:dcc5cb2e431749994aa9450c3319736a955560260ee2d7dfe68afc88258e6e05",
+2025-07-13T00:53:35.808Z [INFO] size: 324,
+2025-07-13T00:53:35.809Z [INFO] }, {
+2025-07-13T00:53:35.809Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.810Z [INFO] digest: "sha256:6a0b9ce97b3d4a4a6e37a1a9d16237718f0187ab3307552c6951a4102232e9a7",
+2025-07-13T00:53:35.811Z [INFO] size: 1049,
+2025-07-13T00:53:35.812Z [INFO] }, {
+2025-07-13T00:53:35.812Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.813Z [INFO] digest: "sha256:2997c68d7f1673dc961463a259687df0cc4605a5be2a31d2fbebfba8cad55424",
+2025-07-13T00:53:35.814Z [INFO] size: 1047,
+2025-07-13T00:53:35.814Z [INFO] }, {
+2025-07-13T00:53:35.815Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.816Z [INFO] digest: "sha256:007371b4c1e23dc80e02c62dd28077debb5791d3177cd4e69db12571a78f380c",
+2025-07-13T00:53:35.816Z [INFO] size: 236,
+2025-07-13T00:53:35.817Z [INFO] }, {
+2025-07-13T00:53:35.818Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.819Z [INFO] digest: "sha256:4fc6fac4ce28ba43ef1ae0eb16930a8920024dad0a19e14295f011fadb252938",
+2025-07-13T00:53:35.819Z [INFO] size: 1574,
+2025-07-13T00:53:35.820Z [INFO] }, {
+2025-07-13T00:53:35.821Z [INFO] digest: "sha256:d2d032fd34370514fbf6f51498b101a8f3958d47bb923a710a29448dce725539",
+2025-07-13T00:53:35.821Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.822Z [INFO] size: 1644,
+2025-07-13T00:53:35.823Z [INFO] }, {
+2025-07-13T00:53:35.824Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.824Z [INFO] digest: "sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420",
+2025-07-13T00:53:35.825Z [INFO] size: 117527689,
+2025-07-13T00:53:35.826Z [INFO] }, {
+2025-07-13T00:53:35.826Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.827Z [INFO] digest: "sha256:0277edf9904e8940c111d2029918531d262cc9d2f4662f88f1712eef6c653f1b",
+2025-07-13T00:53:35.828Z [INFO] size: 91,
+2025-07-13T00:53:35.828Z [INFO] }, {
+2025-07-13T00:53:35.829Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.830Z [INFO] digest: "sha256:c9db1c0c03c500a72fea1a0e51483f2f53c1bb439b20a8313bba4c972755eec7",
+2025-07-13T00:53:35.830Z [INFO] size: 285,
+2025-07-13T00:53:35.831Z [INFO] }, {
+2025-07-13T00:53:35.832Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.833Z [INFO] digest: "sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd",
+2025-07-13T00:53:35.833Z [INFO] size: 3328498678,
+2025-07-13T00:53:35.834Z [INFO] }, {
+2025-07-13T00:53:35.835Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.835Z [INFO] digest: "sha256:8d59cffc970b4aa08197cdaef331803cca46e931238c951e5c7401f8446d997e",
+2025-07-13T00:53:35.836Z [INFO] size: 3120,
+2025-07-13T00:53:35.837Z [INFO] }, {
+2025-07-13T00:53:35.838Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.838Z [INFO] digest: "sha256:95006e8f93d1ebb3a8b9224643dfb41b0b69203bda58099cbcbc506be781c18c",
+2025-07-13T00:53:35.839Z [INFO] size: 1806,
+2025-07-13T00:53:35.840Z [INFO] }, {
+2025-07-13T00:53:35.840Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.841Z [INFO] digest: "sha256:532566f1f7a390aaa6027298532a8f97a3eb7fcec528be1c229e6ba92b80c6fe",
+2025-07-13T00:53:35.842Z [INFO] size: 121,
+2025-07-13T00:53:35.843Z [INFO] }
+2025-07-13T00:53:35.843Z [INFO] ],
+2025-07-13T00:53:35.844Z [INFO] } manifest
+2025-07-13T00:53:35.845Z [INFO] [
+2025-07-13T00:53:35.845Z [INFO] {
+2025-07-13T00:53:35.846Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.847Z [INFO] digest: "sha256:6b851dcae6ca1461dde247915abc5048061f34332929ca8fb37d9dc18f2e2f44",
+2025-07-13T00:53:35.847Z [INFO] size: 29533050,
+2025-07-13T00:53:35.848Z [INFO] }, {
+2025-07-13T00:53:35.849Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.850Z [INFO] digest: "sha256:4586c00479c64413175c7b90a66073cfd574ca0a9ee099495ba8a58a0819d8b9",
+2025-07-13T00:53:35.850Z [INFO] size: 4622553,
+2025-07-13T00:53:35.851Z [INFO] }, {
+2025-07-13T00:53:35.852Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.853Z [INFO] digest: "sha256:4304fa233a80418a848565c712c6ebcb670c1c2d076c419f65f8bf3e49526b08",
+2025-07-13T00:53:35.853Z [INFO] size: 56227567,
+2025-07-13T00:53:35.854Z [INFO] }, {
+2025-07-13T00:53:35.855Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.855Z [INFO] digest: "sha256:afa3f70b397f64c9ae4c406c33113bc1929d64b744b21f934978e7e4def3c7b6",
+2025-07-13T00:53:35.856Z [INFO] size: 181,
+2025-07-13T00:53:35.857Z [INFO] }, {
+2025-07-13T00:53:35.858Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.858Z [INFO] digest: "sha256:d963a42bc71212aa841b9e02f08b835b9c54a833eb2ace0733666774ca570cef",
+2025-07-13T00:53:35.859Z [INFO] size: 6880,
+2025-07-13T00:53:35.860Z [INFO] }, {
+2025-07-13T00:53:35.860Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.861Z [INFO] digest: "sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2",
+2025-07-13T00:53:35.862Z [INFO] size: 1378857287,
+2025-07-13T00:53:35.862Z [INFO] }, {
+2025-07-13T00:53:35.863Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.864Z [INFO] digest: "sha256:c4a5e6c74f13248b950458aa8c3ea386ef6e8b555cd7926a5debbeef380e3685",
+2025-07-13T00:53:35.865Z [INFO] size: 63680,
+2025-07-13T00:53:35.865Z [INFO] }, {
+2025-07-13T00:53:35.866Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.867Z [INFO] digest: "sha256:afec03310895927dd70d086aff541fae64ccffe2132adbf453a5bf4a60c62f9f",
+2025-07-13T00:53:35.868Z [INFO] size: 1681,
+2025-07-13T00:53:35.868Z [INFO] }, {
+2025-07-13T00:53:35.869Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.870Z [INFO] digest: "sha256:44d8a5c35cf0f3feaab663cc8987fbfd68aa3c2e0dab3b7c0c553bb7e51140f6",
+2025-07-13T00:53:35.870Z [INFO] size: 1522,
+2025-07-13T00:53:35.871Z [INFO] }, {
+2025-07-13T00:53:35.872Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.873Z [INFO] digest: "sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8",
+2025-07-13T00:53:35.873Z [INFO] size: 2460258646,
+2025-07-13T00:53:35.874Z [INFO] }, {
+2025-07-13T00:53:35.875Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.875Z [INFO] digest: "sha256:e5f5c15a666415cd3010024e939e14c0051fbebedf71e5c10e2a95f6496e1c02",
+2025-07-13T00:53:35.876Z [INFO] size: 88206,
+2025-07-13T00:53:35.877Z [INFO] }, {
+2025-07-13T00:53:35.877Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.878Z [INFO] digest: "sha256:540509e5c7b1197cd58a50ac766c12527e02ff6f6976038388540d7e208377f3",
+2025-07-13T00:53:35.879Z [INFO] size: 99,
+2025-07-13T00:53:35.880Z [INFO] }, {
+2025-07-13T00:53:35.880Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.881Z [INFO] digest: "sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1",
+2025-07-13T00:53:35.882Z [INFO] size: 205801840,
+2025-07-13T00:53:35.882Z [INFO] }, {
+2025-07-13T00:53:35.883Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.884Z [INFO] digest: "sha256:703b840faf29ab8393ad78fe09078c6e429ff009e2e52e6507d89341d9f61aef",
+2025-07-13T00:53:35.885Z [INFO] size: 10622893,
+2025-07-13T00:53:35.885Z [INFO] }, {
+2025-07-13T00:53:35.886Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.887Z [INFO] digest: "sha256:621b36751ee7210b11852061c80e4255877b67c00e1755edaf36beb46fc2c5fa",
+2025-07-13T00:53:35.887Z [INFO] size: 92,
+2025-07-13T00:53:35.888Z [INFO] }, {
+2025-07-13T00:53:35.889Z [INFO] digest: "sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb",
+2025-07-13T00:53:35.889Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.890Z [INFO] size: 2489567779,
+2025-07-13T00:53:35.891Z [INFO] }, {
+2025-07-13T00:53:35.892Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.892Z [INFO] digest: "sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553",
+2025-07-13T00:53:35.893Z [INFO] size: 78851314,
+2025-07-13T00:53:35.894Z [INFO] }, {
+2025-07-13T00:53:35.894Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.895Z [INFO] digest: "sha256:81790d1a232758f29a8890a170ed27d000348dba1ce0ba299ea1e570ad71f6e0",
+2025-07-13T00:53:35.896Z [INFO] size: 23414063,
+2025-07-13T00:53:35.897Z [INFO] }, {
+2025-07-13T00:53:35.897Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.898Z [INFO] digest: "sha256:c896f96eac0e1a1e8005414896bffa52728168a49de44387b12c0932232ed59f",
+2025-07-13T00:53:35.899Z [INFO] size: 23300256,
+2025-07-13T00:53:35.899Z [INFO] }, {
+2025-07-13T00:53:35.900Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.901Z [INFO] digest: "sha256:52d067c95c51704869a11e3d320d67a2c8ff10aa610ec022ee5f8d1dc04635c8",
+2025-07-13T00:53:35.902Z [INFO] size: 240,
+2025-07-13T00:53:35.902Z [INFO] }, {
+2025-07-13T00:53:35.903Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.904Z [INFO] digest: "sha256:a6a98a6581c0431ace79eb47962770cfcc0897778ed28927bfc9905c4777af39",
+2025-07-13T00:53:35.904Z [INFO] size: 729,
+2025-07-13T00:53:35.905Z [INFO] }, {
+2025-07-13T00:53:35.906Z [INFO] digest: "sha256:24a27a9216b075f2f81518300a4ca1914171cef3fa5fb60fe5cb30bb45d379f3",
+2025-07-13T00:53:35.906Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.907Z [INFO] size: 753,
+2025-07-13T00:53:35.908Z [INFO] }, {
+2025-07-13T00:53:35.909Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.909Z [INFO] digest: "sha256:dcc5cb2e431749994aa9450c3319736a955560260ee2d7dfe68afc88258e6e05",
+2025-07-13T00:53:35.910Z [INFO] size: 324,
+2025-07-13T00:53:35.911Z [INFO] }, {
+2025-07-13T00:53:35.911Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.912Z [INFO] digest: "sha256:6a0b9ce97b3d4a4a6e37a1a9d16237718f0187ab3307552c6951a4102232e9a7",
+2025-07-13T00:53:35.913Z [INFO] size: 1049,
+2025-07-13T00:53:35.914Z [INFO] }, {
+2025-07-13T00:53:35.914Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.915Z [INFO] digest: "sha256:2997c68d7f1673dc961463a259687df0cc4605a5be2a31d2fbebfba8cad55424",
+2025-07-13T00:53:35.916Z [INFO] size: 1047,
+2025-07-13T00:53:35.916Z [INFO] }, {
+2025-07-13T00:53:35.917Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.918Z [INFO] digest: "sha256:007371b4c1e23dc80e02c62dd28077debb5791d3177cd4e69db12571a78f380c",
+2025-07-13T00:53:35.919Z [INFO] size: 236,
+2025-07-13T00:53:35.919Z [INFO] }, {
+2025-07-13T00:53:35.920Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.921Z [INFO] digest: "sha256:4fc6fac4ce28ba43ef1ae0eb16930a8920024dad0a19e14295f011fadb252938",
+2025-07-13T00:53:35.921Z [INFO] size: 1574,
+2025-07-13T00:53:35.922Z [INFO] }, {
+2025-07-13T00:53:35.924Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.924Z [INFO] digest: "sha256:d2d032fd34370514fbf6f51498b101a8f3958d47bb923a710a29448dce725539",
+2025-07-13T00:53:35.925Z [INFO] size: 1644,
+2025-07-13T00:53:35.926Z [INFO] }, {
+2025-07-13T00:53:35.927Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.927Z [INFO] digest: "sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420",
+2025-07-13T00:53:35.928Z [INFO] size: 117527689,
+2025-07-13T00:53:35.929Z [INFO] }, {
+2025-07-13T00:53:35.930Z [INFO] digest: "sha256:0277edf9904e8940c111d2029918531d262cc9d2f4662f88f1712eef6c653f1b",
+2025-07-13T00:53:35.930Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.931Z [INFO] size: 91,
+2025-07-13T00:53:35.932Z [INFO] }, {
+2025-07-13T00:53:35.932Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.933Z [INFO] digest: "sha256:c9db1c0c03c500a72fea1a0e51483f2f53c1bb439b20a8313bba4c972755eec7",
+2025-07-13T00:53:35.934Z [INFO] size: 285,
+2025-07-13T00:53:35.934Z [INFO] }, {
+2025-07-13T00:53:35.935Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.936Z [INFO] digest: "sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd",
+2025-07-13T00:53:35.936Z [INFO] size: 3328498678,
+2025-07-13T00:53:35.937Z [INFO] }, {
+2025-07-13T00:53:35.938Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.938Z [INFO] digest: "sha256:8d59cffc970b4aa08197cdaef331803cca46e931238c951e5c7401f8446d997e",
+2025-07-13T00:53:35.939Z [INFO] size: 3120,
+2025-07-13T00:53:35.940Z [INFO] }, {
+2025-07-13T00:53:35.941Z [INFO] digest: "sha256:95006e8f93d1ebb3a8b9224643dfb41b0b69203bda58099cbcbc506be781c18c",
+2025-07-13T00:53:35.941Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.942Z [INFO] size: 1806,
+2025-07-13T00:53:35.943Z [INFO] }, {
+2025-07-13T00:53:35.943Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:53:35.944Z [INFO] digest: "sha256:532566f1f7a390aaa6027298532a8f97a3eb7fcec528be1c229e6ba92b80c6fe",
+2025-07-13T00:53:35.945Z [INFO] size: 121,
+2025-07-13T00:53:35.946Z [INFO] }
+2025-07-13T00:53:35.947Z [INFO] ]
+2025-07-13T00:53:35.948Z [INFO] Compressing...
+2025-07-13T00:53:35.948Z [INFO] Starting push to remote
+2025-07-13T00:53:35.949Z [INFO] sha256:d963a42bc71212aa841b9e02f08b835b9c54a833eb2ace0733666774ca570cef already exists...
+2025-07-13T00:53:35.950Z [INFO] sha256:4304fa233a80418a848565c712c6ebcb670c1c2d076c419f65f8bf3e49526b08 already exists...
+2025-07-13T00:53:35.951Z [INFO] sha256:4586c00479c64413175c7b90a66073cfd574ca0a9ee099495ba8a58a0819d8b9 already exists...
+2025-07-13T00:53:35.951Z [INFO] sha256:afa3f70b397f64c9ae4c406c33113bc1929d64b744b21f934978e7e4def3c7b6 already exists...
+2025-07-13T00:53:35.952Z [INFO] sha256:6b851dcae6ca1461dde247915abc5048061f34332929ca8fb37d9dc18f2e2f44 already exists...
+2025-07-13T00:53:35.953Z [INFO] sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2 already exists...
+2025-07-13T00:53:35.953Z [INFO] sha256:44d8a5c35cf0f3feaab663cc8987fbfd68aa3c2e0dab3b7c0c553bb7e51140f6 already exists...
+2025-07-13T00:53:35.954Z [INFO] sha256:afec03310895927dd70d086aff541fae64ccffe2132adbf453a5bf4a60c62f9f already exists...
+2025-07-13T00:53:35.955Z [INFO] sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8 already exists...
+2025-07-13T00:53:35.955Z [INFO] sha256:c4a5e6c74f13248b950458aa8c3ea386ef6e8b555cd7926a5debbeef380e3685 already exists...
+2025-07-13T00:53:35.956Z [INFO] sha256:e5f5c15a666415cd3010024e939e14c0051fbebedf71e5c10e2a95f6496e1c02 already exists...
+2025-07-13T00:53:35.957Z [INFO] sha256:540509e5c7b1197cd58a50ac766c12527e02ff6f6976038388540d7e208377f3 already exists...
+2025-07-13T00:53:35.958Z [INFO] sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1 already exists...
+2025-07-13T00:53:35.977Z [INFO] sha256:703b840faf29ab8393ad78fe09078c6e429ff009e2e52e6507d89341d9f61aef already exists...
+2025-07-13T00:53:35.992Z [INFO] sha256:621b36751ee7210b11852061c80e4255877b67c00e1755edaf36beb46fc2c5fa already exists...
+2025-07-13T00:53:36.018Z [INFO] sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553 already exists...
+2025-07-13T00:53:36.026Z [INFO] sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb already exists...
+2025-07-13T00:53:36.050Z [INFO] sha256:c896f96eac0e1a1e8005414896bffa52728168a49de44387b12c0932232ed59f already exists...
+2025-07-13T00:53:36.054Z [INFO] sha256:81790d1a232758f29a8890a170ed27d000348dba1ce0ba299ea1e570ad71f6e0 already exists...
+2025-07-13T00:53:36.059Z [INFO] sha256:52d067c95c51704869a11e3d320d67a2c8ff10aa610ec022ee5f8d1dc04635c8 already exists...
+2025-07-13T00:53:36.086Z [INFO] sha256:a6a98a6581c0431ace79eb47962770cfcc0897778ed28927bfc9905c4777af39 already exists...
+2025-07-13T00:53:36.090Z [INFO] sha256:24a27a9216b075f2f81518300a4ca1914171cef3fa5fb60fe5cb30bb45d379f3 already exists...
+2025-07-13T00:53:36.127Z [INFO] sha256:dcc5cb2e431749994aa9450c3319736a955560260ee2d7dfe68afc88258e6e05 already exists...
+2025-07-13T00:53:36.133Z [INFO] sha256:2997c68d7f1673dc961463a259687df0cc4605a5be2a31d2fbebfba8cad55424 already exists...
+2025-07-13T00:53:36.151Z [INFO] sha256:6a0b9ce97b3d4a4a6e37a1a9d16237718f0187ab3307552c6951a4102232e9a7 already exists...
+2025-07-13T00:53:36.153Z [INFO] sha256:007371b4c1e23dc80e02c62dd28077debb5791d3177cd4e69db12571a78f380c already exists...
+2025-07-13T00:53:36.159Z [INFO] sha256:4fc6fac4ce28ba43ef1ae0eb16930a8920024dad0a19e14295f011fadb252938 already exists...
+2025-07-13T00:53:36.198Z [INFO] sha256:d2d032fd34370514fbf6f51498b101a8f3958d47bb923a710a29448dce725539 already exists...
+2025-07-13T00:53:36.202Z [INFO] sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420 already exists...
+2025-07-13T00:53:36.228Z [INFO] sha256:0277edf9904e8940c111d2029918531d262cc9d2f4662f88f1712eef6c653f1b already exists...
+2025-07-13T00:53:37.781Z [INFO] Pushed sha256:c9db1c0c03c500a72fea1a0e51483f2f53c1bb439b20a8313bba4c972755eec7
+2025-07-13T00:53:37.881Z [INFO] Pushed sha256:532566f1f7a390aaa6027298532a8f97a3eb7fcec528be1c229e6ba92b80c6fe
+2025-07-13T00:53:37.885Z [INFO] Pushed sha256:8d59cffc970b4aa08197cdaef331803cca46e931238c951e5c7401f8446d997e
+2025-07-13T00:53:38.025Z [INFO] Pushed sha256:95006e8f93d1ebb3a8b9224643dfb41b0b69203bda58099cbcbc506be781c18c
+2025-07-13T00:53:39.520Z [INFO] Pushed sha256:cba647d91dcffe213a09d9755581dd1db83d155dd4416bc7911ceeb793686597
+2025-07-13T00:53:41.409Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 3228498678 upload bytes left.
+2025-07-13T00:53:45.488Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 3128498678 upload bytes left.
+2025-07-13T00:53:50.066Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 3028498678 upload bytes left.
+2025-07-13T00:54:06.597Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 2928498678 upload bytes left.
+2025-07-13T00:54:10.830Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 2828498678 upload bytes left.
+2025-07-13T00:54:14.920Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 2728498678 upload bytes left.
+2025-07-13T00:54:20.526Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 2628498678 upload bytes left.
+2025-07-13T00:54:25.015Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 2528498678 upload bytes left.
+2025-07-13T00:54:29.536Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 2428498678 upload bytes left.
+2025-07-13T00:54:34.067Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 2328498678 upload bytes left.
+2025-07-13T00:54:38.981Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 2228498678 upload bytes left.
+2025-07-13T00:54:43.388Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 2128498678 upload bytes left.
+2025-07-13T00:54:48.151Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 2028498678 upload bytes left.
+2025-07-13T00:54:52.650Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 1928498678 upload bytes left.
+2025-07-13T00:54:57.267Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 1828498678 upload bytes left.
+2025-07-13T00:55:01.420Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 1728498678 upload bytes left.
+2025-07-13T00:55:06.062Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 1628498678 upload bytes left.
+2025-07-13T00:55:10.641Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 1528498678 upload bytes left.
+2025-07-13T00:55:47.252Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 1428498678 upload bytes left.
+2025-07-13T00:55:51.501Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 1328498678 upload bytes left.
+2025-07-13T00:55:55.681Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 1228498678 upload bytes left.
+2025-07-13T00:56:00.036Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 1128498678 upload bytes left.
+2025-07-13T00:56:04.910Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 1028498678 upload bytes left.
+2025-07-13T00:56:09.840Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 928498678 upload bytes left.
+2025-07-13T00:56:14.531Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 828498678 upload bytes left.
+2025-07-13T00:56:18.749Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 728498678 upload bytes left.
+2025-07-13T00:56:22.914Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 628498678 upload bytes left.
+2025-07-13T00:56:27.799Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 528498678 upload bytes left.
+2025-07-13T00:56:31.964Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 428498678 upload bytes left.
+2025-07-13T00:56:55.187Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 328498678 upload bytes left.
+2025-07-13T00:56:59.532Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 228498678 upload bytes left.
+2025-07-13T00:57:03.944Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 128498678 upload bytes left.
+2025-07-13T00:57:08.880Z [INFO] sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd: 28498678 upload bytes left.
+2025-07-13T00:57:11.590Z [INFO] Pushed sha256:b45ed7acbbf74e4f406f62ba6e77b979693ef1b00b6c00f4df8b0da06172cccd
+2025-07-13T00:57:14.512Z [INFO] {
+2025-07-13T00:57:14.515Z [INFO] schemaVersion: 2,
+2025-07-13T00:57:14.517Z [INFO] mediaType: "application/vnd.oci.image.manifest.v1+json",
+2025-07-13T00:57:14.519Z [INFO] config: {
+2025-07-13T00:57:14.521Z [INFO] mediaType: "application/vnd.oci.image.config.v1+json",
+2025-07-13T00:57:14.523Z [INFO] size: 27600,
+2025-07-13T00:57:14.525Z [INFO] digest: "sha256:cba647d91dcffe213a09d9755581dd1db83d155dd4416bc7911ceeb793686597",
+2025-07-13T00:57:14.528Z [INFO] },
+2025-07-13T00:57:14.530Z [INFO] layers: [
+2025-07-13T00:57:14.532Z [INFO] {
+2025-07-13T00:57:14.534Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.536Z [INFO] size: 29533050,
+2025-07-13T00:57:14.538Z [INFO] digest: "sha256:6b851dcae6ca1461dde247915abc5048061f34332929ca8fb37d9dc18f2e2f44",
+2025-07-13T00:57:14.539Z [INFO] },
+2025-07-13T00:57:14.541Z [INFO] {
+2025-07-13T00:57:14.543Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.545Z [INFO] size: 4622553,
+2025-07-13T00:57:14.546Z [INFO] digest: "sha256:4586c00479c64413175c7b90a66073cfd574ca0a9ee099495ba8a58a0819d8b9",
+2025-07-13T00:57:14.548Z [INFO] },
+2025-07-13T00:57:14.550Z [INFO] {
+2025-07-13T00:57:14.552Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.554Z [INFO] size: 56227567,
+2025-07-13T00:57:14.556Z [INFO] digest: "sha256:4304fa233a80418a848565c712c6ebcb670c1c2d076c419f65f8bf3e49526b08",
+2025-07-13T00:57:14.558Z [INFO] },
+2025-07-13T00:57:14.560Z [INFO] {
+2025-07-13T00:57:14.562Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.564Z [INFO] size: 181,
+2025-07-13T00:57:14.565Z [INFO] digest: "sha256:afa3f70b397f64c9ae4c406c33113bc1929d64b744b21f934978e7e4def3c7b6",
+2025-07-13T00:57:14.567Z [INFO] },
+2025-07-13T00:57:14.568Z [INFO] {
+2025-07-13T00:57:14.570Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.571Z [INFO] size: 6880,
+2025-07-13T00:57:14.573Z [INFO] digest: "sha256:d963a42bc71212aa841b9e02f08b835b9c54a833eb2ace0733666774ca570cef",
+2025-07-13T00:57:14.574Z [INFO] },
+2025-07-13T00:57:14.576Z [INFO] {
+2025-07-13T00:57:14.577Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.578Z [INFO] size: 1378857287,
+2025-07-13T00:57:14.579Z [INFO] digest: "sha256:68cd1e6a2dfe4db5191e8475ff255dd58a3a5282a2f107925f97b9796c0fd0b2",
+2025-07-13T00:57:14.581Z [INFO] },
+2025-07-13T00:57:14.581Z [INFO] {
+2025-07-13T00:57:14.582Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.583Z [INFO] size: 63680,
+2025-07-13T00:57:14.584Z [INFO] digest: "sha256:c4a5e6c74f13248b950458aa8c3ea386ef6e8b555cd7926a5debbeef380e3685",
+2025-07-13T00:57:14.585Z [INFO] },
+2025-07-13T00:57:14.586Z [INFO] {
+2025-07-13T00:57:14.587Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.588Z [INFO] size: 1681,
+2025-07-13T00:57:14.589Z [INFO] digest: "sha256:afec03310895927dd70d086aff541fae64ccffe2132adbf453a5bf4a60c62f9f",
+2025-07-13T00:57:14.590Z [INFO] },
+2025-07-13T00:57:14.591Z [INFO] {
+2025-07-13T00:57:14.592Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.593Z [INFO] size: 1522,
+2025-07-13T00:57:14.594Z [INFO] digest: "sha256:44d8a5c35cf0f3feaab663cc8987fbfd68aa3c2e0dab3b7c0c553bb7e51140f6",
+2025-07-13T00:57:14.594Z [INFO] },
+2025-07-13T00:57:14.595Z [INFO] {
+2025-07-13T00:57:14.596Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.597Z [INFO] size: 2460258646,
+2025-07-13T00:57:14.598Z [INFO] digest: "sha256:e1bab5cae66b430aacd675a54b6c1d91dfb17aeb41306419ca976f7f2bbaa6e8",
+2025-07-13T00:57:14.599Z [INFO] },
+2025-07-13T00:57:14.600Z [INFO] {
+2025-07-13T00:57:14.600Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.601Z [INFO] size: 88206,
+2025-07-13T00:57:14.602Z [INFO] digest: "sha256:e5f5c15a666415cd3010024e939e14c0051fbebedf71e5c10e2a95f6496e1c02",
+2025-07-13T00:57:14.603Z [INFO] },
+2025-07-13T00:57:14.604Z [INFO] {
+2025-07-13T00:57:14.605Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.606Z [INFO] size: 99,
+2025-07-13T00:57:14.607Z [INFO] digest: "sha256:540509e5c7b1197cd58a50ac766c12527e02ff6f6976038388540d7e208377f3",
+2025-07-13T00:57:14.608Z [INFO] },
+2025-07-13T00:57:14.609Z [INFO] {
+2025-07-13T00:57:14.610Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.610Z [INFO] size: 205801840,
+2025-07-13T00:57:14.611Z [INFO] digest: "sha256:ce80043f8437d71cc750b32845f5dddbf0f5e1c139e836b995a9a8cfda3f15d1",
+2025-07-13T00:57:14.612Z [INFO] },
+2025-07-13T00:57:14.613Z [INFO] {
+2025-07-13T00:57:14.614Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.615Z [INFO] size: 10622893,
+2025-07-13T00:57:14.616Z [INFO] digest: "sha256:703b840faf29ab8393ad78fe09078c6e429ff009e2e52e6507d89341d9f61aef",
+2025-07-13T00:57:14.617Z [INFO] },
+2025-07-13T00:57:14.617Z [INFO] {
+2025-07-13T00:57:14.618Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.619Z [INFO] size: 92,
+2025-07-13T00:57:14.620Z [INFO] digest: "sha256:621b36751ee7210b11852061c80e4255877b67c00e1755edaf36beb46fc2c5fa",
+2025-07-13T00:57:14.621Z [INFO] },
+2025-07-13T00:57:14.622Z [INFO] {
+2025-07-13T00:57:14.622Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.623Z [INFO] size: 2489567779,
+2025-07-13T00:57:14.624Z [INFO] digest: "sha256:692eb9247176bf8f3bb0a1a6e85562924ced42b9259a075d7274aa993663f3fb",
+2025-07-13T00:57:14.625Z [INFO] },
+2025-07-13T00:57:14.626Z [INFO] {
+2025-07-13T00:57:14.627Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.628Z [INFO] size: 78851314,
+2025-07-13T00:57:14.629Z [INFO] digest: "sha256:379ee43df8e025de3dbcc01cc684bcbf7fdd43df740ed117a2aa2aff75e86553",
+2025-07-13T00:57:14.629Z [INFO] },
+2025-07-13T00:57:14.630Z [INFO] {
+2025-07-13T00:57:14.631Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.632Z [INFO] size: 23414063,
+2025-07-13T00:57:14.633Z [INFO] digest: "sha256:81790d1a232758f29a8890a170ed27d000348dba1ce0ba299ea1e570ad71f6e0",
+2025-07-13T00:57:14.634Z [INFO] },
+2025-07-13T00:57:14.634Z [INFO] {
+2025-07-13T00:57:14.635Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.636Z [INFO] size: 23300256,
+2025-07-13T00:57:14.637Z [INFO] digest: "sha256:c896f96eac0e1a1e8005414896bffa52728168a49de44387b12c0932232ed59f",
+2025-07-13T00:57:14.638Z [INFO] },
+2025-07-13T00:57:14.639Z [INFO] {
+2025-07-13T00:57:14.639Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.640Z [INFO] size: 240,
+2025-07-13T00:57:14.641Z [INFO] digest: "sha256:52d067c95c51704869a11e3d320d67a2c8ff10aa610ec022ee5f8d1dc04635c8",
+2025-07-13T00:57:14.642Z [INFO] },
+2025-07-13T00:57:14.643Z [INFO] {
+2025-07-13T00:57:14.644Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.644Z [INFO] size: 729,
+2025-07-13T00:57:14.645Z [INFO] digest: "sha256:a6a98a6581c0431ace79eb47962770cfcc0897778ed28927bfc9905c4777af39",
+2025-07-13T00:57:14.646Z [INFO] },
+2025-07-13T00:57:14.647Z [INFO] {
+2025-07-13T00:57:14.648Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.649Z [INFO] size: 753,
+2025-07-13T00:57:14.650Z [INFO] digest: "sha256:24a27a9216b075f2f81518300a4ca1914171cef3fa5fb60fe5cb30bb45d379f3",
+2025-07-13T00:57:14.651Z [INFO] },
+2025-07-13T00:57:14.652Z [INFO] {
+2025-07-13T00:57:14.653Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.654Z [INFO] size: 324,
+2025-07-13T00:57:14.655Z [INFO] digest: "sha256:dcc5cb2e431749994aa9450c3319736a955560260ee2d7dfe68afc88258e6e05",
+2025-07-13T00:57:14.656Z [INFO] },
+2025-07-13T00:57:14.657Z [INFO] {
+2025-07-13T00:57:14.657Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.658Z [INFO] size: 1049,
+2025-07-13T00:57:14.659Z [INFO] digest: "sha256:6a0b9ce97b3d4a4a6e37a1a9d16237718f0187ab3307552c6951a4102232e9a7",
+2025-07-13T00:57:14.660Z [INFO] },
+2025-07-13T00:57:14.661Z [INFO] {
+2025-07-13T00:57:14.662Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.663Z [INFO] size: 1047,
+2025-07-13T00:57:14.664Z [INFO] digest: "sha256:2997c68d7f1673dc961463a259687df0cc4605a5be2a31d2fbebfba8cad55424",
+2025-07-13T00:57:14.665Z [INFO] },
+2025-07-13T00:57:14.665Z [INFO] {
+2025-07-13T00:57:14.666Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.667Z [INFO] size: 236,
+2025-07-13T00:57:14.668Z [INFO] digest: "sha256:007371b4c1e23dc80e02c62dd28077debb5791d3177cd4e69db12571a78f380c",
+2025-07-13T00:57:14.669Z [INFO] },
+2025-07-13T00:57:14.670Z [INFO] {
+2025-07-13T00:57:14.670Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.672Z [INFO] size: 1574,
+2025-07-13T00:57:14.673Z [INFO] digest: "sha256:4fc6fac4ce28ba43ef1ae0eb16930a8920024dad0a19e14295f011fadb252938",
+2025-07-13T00:57:14.674Z [INFO] },
+2025-07-13T00:57:14.675Z [INFO] {
+2025-07-13T00:57:14.676Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.677Z [INFO] size: 1644,
+2025-07-13T00:57:14.678Z [INFO] digest: "sha256:d2d032fd34370514fbf6f51498b101a8f3958d47bb923a710a29448dce725539",
+2025-07-13T00:57:14.679Z [INFO] },
+2025-07-13T00:57:14.680Z [INFO] {
+2025-07-13T00:57:14.681Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.682Z [INFO] size: 117527689,
+2025-07-13T00:57:14.683Z [INFO] digest: "sha256:bb73ecc3332b78d7f207f7a09349de72790a0a34fd7c3411791734a522183420",
+2025-07-13T00:57:14.697Z [INFO] {
+2025-07-13T00:57:14.698Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.699Z [INFO] size: 3120,
+2025-07-13T00:57:14.700Z [INFO] digest: "sha256:8d59cffc970b4aa08197cdaef331803cca46e931238c951e5c7401f8446d997e",
+2025-07-13T00:57:14.701Z [INFO] },
+2025-07-13T00:57:14.702Z [INFO] {
+2025-07-13T00:57:14.703Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.704Z [INFO] size: 1806,
+2025-07-13T00:57:14.705Z [INFO] digest: "sha256:95006e8f93d1ebb3a8b9224643dfb41b0b69203bda58099cbcbc506be781c18c",
+2025-07-13T00:57:14.706Z [INFO] },
+2025-07-13T00:57:14.707Z [INFO] {
+2025-07-13T00:57:14.707Z [INFO] mediaType: "application/vnd.oci.image.layer.v1.tar+gzip",
+2025-07-13T00:57:14.708Z [INFO] size: 121,
+2025-07-13T00:57:14.709Z [INFO] digest: "sha256:532566f1f7a390aaa6027298532a8f97a3eb7fcec528be1c229e6ba92b80c6fe",
+2025-07-13T00:57:14.710Z [INFO] }
+2025-07-13T00:57:14.711Z [INFO] ],

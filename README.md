@@ -1,147 +1,228 @@
 # WhisperX API Server for RunPod
 
-A production-ready, GPU-accelerated WhisperX API server that provides OpenAI Whisper API compatible endpoints with advanced features like speaker diarization and word-level alignment.
+A scalable, GPU-powered transcription API server built with WhisperX and FastAPI, designed for deployment on RunPod's serverless platform.
 
 ## Features
 
-- 🎯 **OpenAI Whisper API Compatible** - Drop-in replacement for OpenAI's Whisper API
-- 🔊 **Speaker Diarization** - Identify different speakers in audio
-- 📝 **Word-Level Alignment** - Precise word timestamps and positioning
-- 🚀 **GPU Acceleration** - Optimized for NVIDIA GPUs with CUDA support
-- 🏗️ **Scalable Architecture** - Ready for serverless deployment on RunPod
-- 📊 **Multiple Output Formats** - JSON, SRT, VTT subtitle formats
-- 🌐 **Multi-Language Support** - Support for 90+ languages
-- 🔄 **Model Caching** - Efficient model loading and memory management
+- **OpenAI-compatible API** endpoints (`/v1/audio/transcriptions`, `/v1/audio/translations`)
+- **Speaker diarization** - Identify who spoke when
+- **Word-level timestamps** - Precise timing for each word
+- **90+ language support** - Multi-language transcription
+- **Multiple output formats** - JSON, SRT, VTT
+- **GPU acceleration** - Optimized for NVIDIA GPUs
+- **Scalable deployment** - RunPod serverless platform
 
 ## API Endpoints
 
-### Core Endpoints
+- `POST /v1/audio/transcriptions` - Transcribe audio with diarization and timestamps
+- `POST /v1/audio/translations` - Translate audio to English
+- `GET /healthcheck` - Service health and status
+- `GET /models/list` - Available models
 
-- `POST /v1/audio/transcriptions` - Transcribe audio with optional diarization and alignment
-- `GET /healthcheck` - Health check endpoint
-- `GET /models/list` - List available models
-- `GET /` - Root endpoint with API information
+## Quick Start
 
-## Quick Start with RunPod
+### Prerequisites
 
-### 1. Repository Setup
+1. **Docker Desktop** - Install from [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop)
+2. **Docker Hub Account** - Create at [https://hub.docker.com](https://hub.docker.com)
+3. **RunPod Account** - Sign up at [https://www.runpod.io](https://www.runpod.io)
 
-1. **Fork/Clone this repository** to your GitHub account
-2. **Ensure your repository is public** (required for RunPod GitHub integration)
-3. **Verify the `Dockerfile` is in the root directory**
+### Deployment Method 1: Local Build + Docker Hub Push
 
-### 2. Deploy to RunPod
+This method gives you full control over the build process and faster deployment.
 
-1. **Connect GitHub to RunPod**
-   - Go to RunPod Dashboard → Settings → Connections
-   - Authorize GitHub access
+#### Step 1: Clone and Build
 
-2. **Create New Serverless Endpoint**
-   - Navigate to Serverless → New Endpoint
-   - Select "Custom Source" → "GitHub Repo"
-   - Choose your repository and branch
-   - Set container port to `8000`
+```bash
+git clone https://github.com/703deuce/whisper.git
+cd whisper
+```
 
-3. **Configure Resources**
-   - **Recommended GPU**: NVIDIA T4, RTX 3090, or A10G
-   - **Minimum VRAM**: 8GB (12GB+ recommended for large models)
-   - **Disk Size**: 50GB minimum
-   - **Memory**: 16GB recommended
+#### Step 2: Build and Push to Docker Hub
 
-4. **Environment Variables** (Optional)
-   - `WHISPER_MODEL`: Model to load (default: "large-v2")
-   - `HF_TOKEN`: Hugging Face token for diarization (required for speaker diarization)
-   - `CUDA_VISIBLE_DEVICES`: GPU device to use (default: "0")
+**For Windows (PowerShell):**
+```powershell
+.\build-and-push.ps1 -DockerHubUsername "yourusername"
+```
 
-5. **Deploy**
-   - Click "Create Endpoint"
-   - Wait for build completion (typically 5-10 minutes)
-   - Get your endpoint URL: `https://<endpoint-id>-8000.proxy.runpod.net`
+**For Linux/macOS:**
+```bash
+chmod +x build-and-push.sh
+./build-and-push.sh yourusername
+```
 
-## Usage Examples
+**Manual build (if scripts don't work):**
+```bash
+# Build the image
+docker build -t yourusername/whisperx-api-server:latest -f Dockerfile.cuda .
+
+# Login to Docker Hub
+docker login
+
+# Push to Docker Hub
+docker push yourusername/whisperx-api-server:latest
+```
+
+#### Step 3: Deploy on RunPod
+
+1. Go to [RunPod Dashboard](https://www.runpod.io/console)
+2. Navigate to **Pods** or **Serverless Endpoints**
+3. Click **Create New Pod/Endpoint**
+4. Configure:
+   - **Container Image**: `yourusername/whisperx-api-server:latest`
+   - **Port**: `8000`
+   - **GPU**: Choose RTX 3090, A10G, or T4 (8-12GB VRAM recommended)
+   - **Container Disk**: 20GB minimum
+5. Click **Deploy**
+
+#### Step 4: Test Your API
+
+RunPod will provide a proxy URL like `https://<pod-id>-8000.proxy.runpod.net`
+
+```bash
+# Test health check
+curl "https://<pod-id>-8000.proxy.runpod.net/healthcheck"
+
+# Test transcription
+curl -X POST "https://<pod-id>-8000.proxy.runpod.net/v1/audio/transcriptions" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@youraudiofile.wav" \
+  -F "diarize=true" \
+  -F "align=true" \
+  -F "timestamp_granularities=word"
+```
+
+### Deployment Method 2: RunPod CLI
+
+Install and configure the RunPod CLI:
+
+```bash
+# Install RunPod CLI
+pip install runpod
+
+# Deploy
+runpodctl create pod \
+  --name whisperx-api-server \
+  --imageName yourusername/whisperx-api-server:latest \
+  --gpuType "NVIDIA RTX 3090" \
+  --gpuCount 1 \
+  --containerDiskSize 20 \
+  --ports "8000/http"
+```
+
+## API Usage Examples
 
 ### Basic Transcription
 
 ```bash
-curl -X POST "https://your-endpoint-url/v1/audio/transcriptions" \
+curl -X POST "https://your-pod-url/v1/audio/transcriptions" \
   -H "Content-Type: multipart/form-data" \
   -F "file=@audio.wav" \
-  -F "model=whisper-large-v2"
+  -F "model=whisper-1"
 ```
 
 ### With Speaker Diarization
 
 ```bash
-curl -X POST "https://your-endpoint-url/v1/audio/transcriptions" \
+curl -X POST "https://your-pod-url/v1/audio/transcriptions" \
   -H "Content-Type: multipart/form-data" \
   -F "file=@audio.wav" \
   -F "diarize=true" \
-  -F "min_speakers=2" \
-  -F "max_speakers=4"
+  -F "align=true"
 ```
 
-### With Word-Level Alignment
+### Word-level Timestamps
 
 ```bash
-curl -X POST "https://your-endpoint-url/v1/audio/transcriptions" \
+curl -X POST "https://your-pod-url/v1/audio/transcriptions" \
   -H "Content-Type: multipart/form-data" \
   -F "file=@audio.wav" \
-  -F "align=true" \
   -F "timestamp_granularities=word"
 ```
 
-## Supported Models
+### SRT Format Output
 
-- `whisper-large-v2` - Best accuracy, slower inference
-- `whisper-large-v3` - Latest model with improved performance
-- `whisper-medium` - Good balance of speed and accuracy
-- `whisper-small` - Fastest inference, lower accuracy
+```bash
+curl -X POST "https://your-pod-url/v1/audio/transcriptions" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@audio.wav" \
+  -F "response_format=srt"
+```
+
+## Configuration Options
+
+### Environment Variables
+
+- `WHISPER_MODEL` - Model size (default: "large-v2")
+- `DEVICE` - Device to use (default: "cuda")
+- `COMPUTE_TYPE` - Compute type (default: "float16")
+- `BATCH_SIZE` - Batch size (default: 16)
+- `HF_TOKEN` - Hugging Face token for speaker diarization
+
+### Request Parameters
+
+- `file` - Audio file (required)
+- `model` - Model to use (default: "whisper-1")
+- `language` - Language code (auto-detect if not specified)
+- `response_format` - Output format: "json", "srt", "vtt" (default: "json")
+- `timestamp_granularities` - "segment" or "word" (default: "segment")
+- `diarize` - Enable speaker diarization (default: false)
+- `align` - Enable word-level alignment (default: false)
+
+## Performance Tips
+
+1. **GPU Selection**: Use RTX 3090 or A10G for best performance
+2. **Model Size**: "large-v2" offers best accuracy, "base" for faster processing
+3. **Batch Size**: Adjust based on GPU memory (16 for 12GB+, 8 for 8GB)
+4. **Scaling**: Use multiple pods for high-volume processing
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **Build Fails**
-   - Check Dockerfile path and syntax
-   - Verify all dependencies in requirements.txt
-   - Ensure base image supports CUDA
+1. **Build failures**: Check Docker installation and Dockerfile.cuda exists
+2. **Memory errors**: Use smaller batch size or model
+3. **Slow transcription**: Ensure GPU is properly configured
+4. **API errors**: Check logs in RunPod dashboard
 
-2. **API Not Responding**
-   - Verify port 8000 is exposed
-   - Check container logs for errors
-   - Ensure sufficient GPU memory
-
-3. **Diarization Not Working**
-   - Set `HF_TOKEN` environment variable
-   - Verify Hugging Face token has access to pyannote models
-   - Check model loading logs
-
-## Local Development
-
-### Prerequisites
-
-- Python 3.8+
-- NVIDIA GPU with CUDA support
-- 8GB+ GPU memory
-
-### Setup
+### Health Check
 
 ```bash
-# Clone repository
-git clone https://github.com/703deuce/whisper.git
-cd whisper
+curl "https://your-pod-url/healthcheck"
+```
 
+Expected response:
+```json
+{
+  "status": "healthy",
+  "device": "cuda",
+  "models_loaded": true,
+  "timestamp": "2024-01-01T00:00:00Z"
+}
+```
+
+## Development
+
+### Local Testing
+
+```bash
 # Install dependencies
 pip install -r requirements.txt
 
-# Set environment variables
-export HF_TOKEN=your_hugging_face_token
-export WHISPER_MODEL=large-v2
-
 # Run server
-python app.py
+python -m uvicorn app:app --host 0.0.0.0 --port 8000
+
+# Test health check
+python test_health.py
 ```
+
+## Support
+
+For issues and questions:
+- Check RunPod documentation
+- Review container logs in RunPod dashboard
+- Verify GPU and memory requirements
 
 ## License
 
-This project is licensed under the MIT License. 
+This project is open source and available under the MIT License. 
