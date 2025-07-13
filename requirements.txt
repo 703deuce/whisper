@@ -1,7 +1,5 @@
-# Core FastAPI dependencies
-fastapi
-uvicorn[standard]
-python-multipart
+# RunPod Serverless SDK
+runpod>=1.6.0
 
 # WhisperX - let it handle its own dependencies
 whisperx
@@ -9,8 +7,17 @@ whisperx
 # Audio processing essentials
 ffmpeg-python
 
-# Testing
-requests
+# ML/AI acceleration
+accelerate>=0.20.0
+huggingface-hub>=0.15.0
+
+# Audio file handling
+soundfile>=0.12.1
+scipy>=1.9.0
+
+# Utilities
+tqdm>=4.64.0
+pydantic>=1.8.0
 
 # Fix PyTorch compatibility - upgrade torchvision to match torch 2.7.1
 torchvision>=0.22.0

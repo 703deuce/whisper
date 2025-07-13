@@ -22,19 +22,15 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application files
-COPY app.py .
-COPY models.py .
+COPY handler.py .
 
 # Create directories for temporary files
 RUN mkdir -p /tmp/whisper
-
-# Expose port 8000
-EXPOSE 8000
 
 # Set environment variables for optimal performance
 ENV CUDA_VISIBLE_DEVICES=0
 ENV TORCH_CUDA_ARCH_LIST="6.0;6.1;7.0;7.5;8.0;8.6"
 ENV FORCE_CUDA="1"
 
-# Run the application
-CMD ["python", "-m", "uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"] 
+# RunPod Serverless will handle the execution
+CMD ["python", "handler.py"] 
